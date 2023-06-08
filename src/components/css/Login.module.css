@@ -1,0 +1,70 @@
+body {
+    font-family: 'Just Another Hand', cursive;
+    background-color: #b2e1b7;
+    width: 100%;
+  }
+
+ .container  {
+    max-width: 40rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center; 
+  }
+
+  h2 {
+    font-size: 120px;
+    color: #f4ec8c;
+    letter-spacing: 5px;
+    font-weight:50;  
+    text-align: center;
+    margin: 0;
+    letter-spacing: 12px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0;
+    font-size: 50px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    max-width: 20rem;
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    
+  }
+
+  button {
+    background-color: #7BB293;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    max-width: 10rem;
+    width: 100%;
+    margin: 25px auto;
+    padding: 8px;
+    display: block;
+  }
+
+  a {
+    font-size: 50px;
+    display: block;
+    text-align: center; 
+    color: #7BB293;
+  }
+
+  .registerBtn{
+    border: none;
+    color:  #f4ec8c;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 20px;
+  }

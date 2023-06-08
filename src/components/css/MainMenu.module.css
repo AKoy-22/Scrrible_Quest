@@ -1,0 +1,53 @@
+body{
+    margin-top: 50px;
+}
+.userName {
+    font-size: 120px;
+    color:  #f4ec8c ;
+    display: inline-block;
+    transform: rotate(18deg);
+}
+
+.logoutLink {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    right: 50px; /* Adjust the right position as needed */
+    text-decoration: none;
+    color: #EFA4A0; /* Adjust the color as needed */
+    letter-spacing: 5px;
+    font-size: 40px;
+}
+.welcome{
+    color:#551A5A ;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 80px;
+    color: #551A5A;
+    font-weight:50;  
+    text-align: center;
+    margin: 0;
+    letter-spacing: 5px;
+
+  }
+
+  ul {
+    margin-top: 100px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  .gameLink{
+    padding: 5px 25px;
+    border-radius: 40px;
+    background-color: #7BB293;
+    color:white;    
+    font-size: 60px;    
+    margin-right: 50px;
+    text-decoration: none;
+  }
+

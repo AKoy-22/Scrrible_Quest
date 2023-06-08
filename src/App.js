@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import Login from './components/Login'
+import Welcome from './components/MainMenu';
+
+
+import { useState } from 'react';
 
 function App() {
+
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  function loginBtnHander(event){
+      setLoginStatus(true);
+      console.log(loginStatus);
+  }
+  function logOutBtnHander(event){
+    setLoginStatus(false);
+    console.log(loginStatus);
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     
+      
+      <div>
+        {loginStatus? <Welcome logOutBtnHander={logOutBtnHander}/> :
+       
+        <Login loginBtnHander={loginBtnHander}/>
+       
+       }
+      </div>
+     
   );
 }
 
