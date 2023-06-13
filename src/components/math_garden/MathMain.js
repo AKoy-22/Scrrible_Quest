@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import classes from './css/MathMain.module.css'
-import {clearCanvas, prepareCanvas} from './canvas';
-import {loadModel, predictNumber} from './loadModel';
-//import OpenCVWrapper from './OpenCVWrapper';
+import { clearCanvas, prepareCanvas } from './canvas';
+
+
 
 function MathMain() {
   const canvasRef = useRef(null);
@@ -12,17 +12,35 @@ function MathMain() {
     const canvas = canvasRef.current;
     ctx = canvas.getContext('2d', { willReadFrequently: true });
     prepareCanvas(canvas, ctx);
-    loadModel();
+
     return () => {
-      // Clean up any event listeners or resources if needed
+
     };
   }, []);
 
-  function checkAnswerHandler(){
-    const output = predictNumber(canvasRef.current);
-    console.log(output);
-    clearCanvas();
-  };
+  function checkAnswerBtnHandler(){
+    const data = {
+      'name': 'John Doe',
+    };
+  
+    fetch('http://localhost:8000/test', {  
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      // Handle the response from the Django backend
+      console.log(response.status);
+    })
+    .catch(error => {
+      // Handle any errors
+      console.log("There was an error")
+    });
+  }
+
+
 
   return (
     <div>
@@ -33,12 +51,15 @@ function MathMain() {
         <canvas className={classes.myCanvas} ref={canvasRef} width="150" height="150" >error</canvas>
       </div>
       <div className={classes.container}>
-        <button id='checkAnswer' className={classes.btn} value='Check' onClick={checkAnswerHandler}>Check Answer</button>
+        <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check Answer</button>
       </div>
-      {/* <OpenCVWrapper/> */}
+
     </div>
 
   )
 }
 
 export default MathMain;
+
+
+

@@ -23,14 +23,15 @@ body {
     letter-spacing: 12px;
   }
 
-  label {
+  .container label {
     display: block;
     margin-bottom: 0;
     font-size: 50px;
   }
 
   input[type="text"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="email"] {
     max-width: 20rem;
     width: 90%;
     padding: 8px;
@@ -40,7 +41,7 @@ body {
     
   }
 
-  button {
+  .container button {
     background-color: #7BB293;
     color: white;
     border: none;
@@ -67,4 +68,7 @@ body {
     cursor: pointer;
     text-decoration: underline;
     font-size: 20px;
+    white-space: nowrap;
+    margin: 0 auto;
+    display: block;
   }

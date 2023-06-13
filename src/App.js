@@ -9,12 +9,15 @@ import { useState } from 'react';
 function App() {
 
   const [loginStatus, setLoginStatus] = useState(false);
+  const [loginData, setLoginData] = useState(null);
 
-  function loginBtnHander(event){
+  function handleLogin(userData){
       setLoginStatus(true);
+      setLoginData(userData);
+      console.log(userData);
       console.log(loginStatus);
   }
-  function logOutBtnHander(event){
+  function handleLogout(event){
     setLoginStatus(false);
     console.log(loginStatus);
 }
@@ -23,9 +26,9 @@ function App() {
      
       
       <div>
-        {loginStatus? <Welcome logOutBtnHander={logOutBtnHander}/> :
+        {loginStatus? <Welcome handleLogout={handleLogout}/> :
        
-        <Login loginBtnHander={loginBtnHander}/>
+        <Login handleLogin={handleLogin}/>
        
        }
       </div>

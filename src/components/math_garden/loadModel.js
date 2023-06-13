@@ -1,12 +1,17 @@
-import * as tf from '@tensorflow/tfjs';
+/*import * as tf from '@tensorflow/tfjs';
+cv = require('opencv.js');
 
 var model;
 
 export async function loadModel() {
   //model=await tf.loadGraphModel('TFJS/model.json');
   model = await tf.loadLayersModel('./TFJS/model.json');
+  return console.log("model loaded");
   
 }
+loadModel();
+
+
 
 export function predictNumber(canvas){
   console.log('processing...');
@@ -102,3 +107,4 @@ export function predictNumber(canvas){
 
 
 
+*/

@@ -16,6 +16,7 @@ body{
     color: #EFA4A0; /* Adjust the color as needed */
     letter-spacing: 5px;
     font-size: 40px;
+    cursor: pointer;
 }
 .welcome{
     color:#551A5A ;
