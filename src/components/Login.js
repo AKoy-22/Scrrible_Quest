@@ -7,8 +7,8 @@ function Login(props) {
 
     const [modalIsVisible, setModalIsVisible] = useState(false)
     const [inputValues, setInputValues] = useState({
-        password: '',
-        email: ''
+        username: '',
+        password: ''
     });
 
     function handleInputChange(event) {
@@ -30,8 +30,33 @@ function Login(props) {
 
     function loginBtnHandler(event){
         event.preventDefault();
-        props.handleLogin(inputValues);
         console.log("Login Button Clicked");
+        console.log(inputValues)
+
+        fetch('http://localhost:8000/login/', {  
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(inputValues)
+          })
+          .then(response => response.json())
+          .then(data=>{
+            console.log(data.message)
+            if(data.message=='Login successful'){
+                props.handleLogin(inputValues)
+            }
+            else if(data.message == 'Invalid password'){
+                alert("Login failed. Please check your username and/or password !")
+            }
+            else if(data.message == 'Username does not exist'){
+                alert("No such user. Please sign up to create an account ! ")
+            }
+          })
+           .catch(error => {
+             // Handle any errors
+             console.log("There was an error")
+           });
     }
 
     return (
@@ -44,8 +69,8 @@ function Login(props) {
             <h2>Welcome !</h2>
             <div className={classes.container}>
                 <form>
-                    <label htmlFor="email">Your Email</label>
-                    <input type="email" id="email" name="email" required onChange={handleInputChange}/>
+                    <label htmlFor="username">Your Username</label>
+                    <input type="text" id="username" name="username" required onChange={handleInputChange}/>
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" name="password" required onChange={handleInputChange}/>
                     <button type="submit" onClick={loginBtnHandler}>Login</button>

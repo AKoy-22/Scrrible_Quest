@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import MathMain from './components/math_garden/MathMain'
+import Welcome from './components/MainMenu';
 import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 const routes = createBrowserRouter([
   { path: '/', element:<App/>}, // our-domain 
-  { path: '/math-garden', element:<MathMain/>}
+  { path: '/math-garden', element:<MathMain/>},
+  { path: '/home-page', element:<Welcome/>}
 
 ]);
 

@@ -1,10 +1,10 @@
 .newUserContainer {
   max-width: 40rem;
   width: 90%;
-  margin: 5vh auto; /* Adjust margin using vh unit for vertical responsiveness */
   padding: 2vh;
   border-radius: 5px;
   text-align: center;
+  height: auto
 }
 
 h2 {
@@ -20,7 +20,12 @@ h2 {
 .newUserContainer label {
   display: block;
   margin: 0;
-  font-size: 4vw; /* Adjust font size using vw unit */
+  font-size: 3vw; /* Adjust font size using vw unit */
+}
+.newUserContainer label:first-of-type {
+  display: block;
+  margin: 3vh auto 0 auto ;
+  font-size: 3vw; /* Adjust font size using vw unit */
 }
 
 .newUserContainer input {
@@ -40,7 +45,7 @@ h2 {
   cursor: pointer;
   max-width: 10rem;
   width: 100%;
-  margin: 5vh auto; /* Adjust margin using vh unit for vertical responsiveness */
+  margin: 4vh auto 0 auto; /* Adjust margin using vh unit for vertical responsiveness */
   padding: 2vh;
   display: block;
 }

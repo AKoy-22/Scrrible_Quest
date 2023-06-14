@@ -4,8 +4,9 @@ import React, {useState} from 'react';
 
 function NewUser(){
     const [inputValues, setInputValues] = useState({
-        FName: '',
-        LName:'',
+        username:'',
+        first_name: '',
+        last_name:'',
         password: '',
         email: '',
         grade: ''
@@ -80,10 +81,12 @@ function NewUser(){
     return(
         <div className={classes.newUserContainer}>      
         <form>
-            <label htmlFor="FName">First Name</label>
-            <input type="text" id="FName" name="FName" required  onChange={handleInputChange}/>
+            <label htmlFor="username">Username</label>
+            <input type="text" id="username" name="username" required  onChange={handleInputChange}/>
+            <label htmlFor="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" required  onChange={handleInputChange}/>
             <label htmlFor="lName">Last Name</label>
-            <input type="text" id="LName" name="LName" required  onChange={handleInputChange}/>
+            <input type="text" id="last_name" name="last_name" required  onChange={handleInputChange}/>
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" required onChange={handleInputChange} />
             <label htmlFor="email">E-Mail</label>

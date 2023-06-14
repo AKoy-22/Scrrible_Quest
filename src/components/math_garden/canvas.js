@@ -79,12 +79,12 @@ function draw(ctx) {
     ctx.stroke();
 }
 //clears canvas when button is clicked
-export function clearCanvas(){
+export function clearCanvas(canvas, ctx){
     currentX = 0;
     currentY = 0;
     prevX = 0;
     prevY = 0;
-    ctx.fillRect(0, 0, c.clientWidth, c.clientHeight);
+    ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 }
 
 

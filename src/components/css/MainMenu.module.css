@@ -2,10 +2,10 @@ body{
     margin-top: 50px;
 }
 .userName {
-    font-size: 120px;
+    font-size: 150px;
     color:  #f4ec8c ;
     display: inline-block;
-    transform: rotate(18deg);
+    transform: rotate(17deg);
 }
 
 .logoutLink {
@@ -19,13 +19,13 @@ body{
     cursor: pointer;
 }
 .welcome{
-    color:#551A5A ;
+    color: #89A8CD;
     margin-bottom: 20px;
 }
 
 h3 {
     font-size: 80px;
-    color: #551A5A;
+    color:  whitesmoke;
     font-weight:50;  
     text-align: center;
     margin: 0;
@@ -40,12 +40,12 @@ h3 {
     justify-content: center;
   }
 
-
+  /* #7BB293; */
 
   .gameLink{
     padding: 5px 25px;
     border-radius: 40px;
-    background-color: #7BB293;
+    background-color: #EFA4A0;
     color:white;    
     font-size: 60px;    
     margin-right: 50px;
