@@ -98,6 +98,28 @@ h3 {
   color: whitesmoke;
 }
 
+.topLeftBtns button:hover{
+  background-color: whitesmoke;
+  color: #EFA4A0;;
+}
+
+.topLeftBtns .opt{
+  font-family: 'Just Another Hand', cursive;
+  font-size: 40px;
+  letter-spacing: 3px;
+  padding: 10px 30px 0 30px;
+  margin-left: 10px;
+  text-align: center;
+  background-color: #89A8CD;
+  border-radius: 20px;
+  border-style: none;
+  color: whitesmoke;
+}
+.topLeftBtns .opt:hover{
+background-color: whitesmoke;
+color: #89A8CD;;
+}
+
 .homeLink {
   position: absolute;
   top: 5px; /* Adjust the top position as needed */
@@ -110,5 +132,17 @@ h3 {
 }
 
 .yay {
+  color:#89A8CD;
+  font-size: 120px;
+  letter-spacing: 8px;
+  font-weight: 100;
+  margin-bottom: 50px;
+}
+
+.nay {
   color:#EFA4A0;
+  font-size: 120px;
+  letter-spacing: 8px;
+  font-weight: 100;
+  margin-bottom: 50px;
 }
