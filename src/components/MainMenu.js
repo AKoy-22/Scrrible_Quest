@@ -12,7 +12,7 @@ function Welcome({handleLogout}){
             <h2 className={classes.welcome}>Hello <span className={classes.userName}>{storedUserName}!</span></h2>
             <h3>Where do you want to go today ?</h3>
             <ul>
-                <li ><Link className={classes.gameLink} to="/math-garden">Math Garden</Link></li>
+                <li ><Link className={classes.gameLink} to="/math-garden-levels">Math Garden</Link></li>
                 <li ><Link className={classes.gameLink}>Words River</Link></li>
             </ul>
         </div>

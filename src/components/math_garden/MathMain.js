@@ -10,8 +10,8 @@ function MathMain() {
   
   const [num1, setNum1] = useState(); // Initial value for n1
   const [num2, setNum2] = useState(); // Initial value for n2
-  const [correct, setCorrect] = useState(false);
-  const [wrong, setWrong] = useState(false);
+  //const [correct, setCorrect] = useState(false);
+  //const [wrong, setWrong] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -47,26 +47,26 @@ function MathMain() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ image: imageDataURL }),
+      body: JSON.stringify({ image: [imageDataURL] }),
     })
       .then(response => response.json())
       .then(data => {
         // Handle the response from the backend
         console.log(data);
-        var predicted_num = parseInt(data.predicted_number);
+        var predicted_num = parseInt(data.predicted_numbers[0]);
         console.log(predicted_num);
         var answer = num1 + num2;
-        if(predicted_num == answer){
+        if(predicted_num === answer){
           console.log("That is correct!");
-          setCorrect(true);
-          setWrong(false);
+          //setCorrect(true);
+          //setWrong(false);
           setTimeout(() => {
             newQuestion();
-            setCorrect(false);
+            //setCorrect(false);
             eraseBtnHandler();
           }, 2000); // Delay of 3 seconds (3000 milliseconds)
         }else{
-          setWrong(true);
+          //setWrong(true);
           setTimeout(() => {
             eraseBtnHandler();
           }, 2000)
@@ -90,9 +90,9 @@ function MathMain() {
     <>
       <div className={classes.container}>
 
-        {correct && <h1 className={classes.yay}>Yay!</h1>}
-        {wrong && <h1 className={classes.yay}>Oops! Try again.</h1>}
-        {!correct && !wrong && <h1>Math Garden</h1>}
+        {/* {correct && <h1 className={classes.yay}>Yay!</h1>} */}
+        {/* {wrong && <h1 className={classes.yay}>Oops! Try again.</h1>}
+        {!correct && !wrong && <h1>Math Garden</h1>} */}
         <Link className={classes.homeLink} onClick={eraseBtnHandler} to="/">Home</Link>
         
         <h2 className={classes.question}> <span id='n1'>{num1}</span> + <span id='n2'>{num2}</span> = </h2>

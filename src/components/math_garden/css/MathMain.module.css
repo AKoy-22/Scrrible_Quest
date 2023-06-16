@@ -8,11 +8,12 @@ body {
 }
 
 /* TODO: Styling by html elemnt: add styling for h1 and h2 */
-h1 {
+.title {
   font-size: 120px;
   color: #f4ec8c;
   letter-spacing: 8px;
   font-weight: 100;
+  margin-bottom: 50px;
 }
 
 /* TODO: Styling by id: add styling for #title */
@@ -27,6 +28,9 @@ h3 {
 .question {
   display: inline;
   color: #FFFFFF;
+  font-family:cursive;
+  letter-spacing: normal;
+  
 }
 
 /* TODO: Styling by id: add styling for canvas */
@@ -35,12 +39,17 @@ h3 {
   vertical-align: top;
   display: inline;
   border: solid 5px #FFFFFF;
-
 }
 
 .container {
   text-align: center;
   margin: 50px auto;
+  display: block;
+}
+
+.canvasContainer{
+  text-align: center;
+  margin: 5px auto;
   display: block;
 }
 
