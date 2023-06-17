@@ -7,7 +7,6 @@ body {
   background-size: cover;
 }
 
-/* TODO: Styling by html elemnt: add styling for h1 and h2 */
 .title {
   font-size: 120px;
   color: #f4ec8c;
@@ -16,7 +15,6 @@ body {
   margin-bottom: 50px;
 }
 
-/* TODO: Styling by id: add styling for #title */
 h2 {
   font-size: 150px;
 }
@@ -122,10 +120,10 @@ color: #89A8CD;;
 
 .homeLink {
   position: absolute;
-  top: 5px; /* Adjust the top position as needed */
-  right: 10px; /* Adjust the right position as needed */
+  top: 5px; 
+  right: 10px; 
   text-decoration: none;
-  color: #EFA4A0; /* Adjust the color as needed */
+  color: #EFA4A0; 
   letter-spacing: 5px;
   font-size: 40px;
   cursor: pointer;

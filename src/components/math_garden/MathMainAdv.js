@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import classes from './css/MathMain.module.css';
 import { clearCanvas, prepareCanvas } from './canvas';
 import { Link } from 'react-router-dom';
-import { op, split } from '@tensorflow/tfjs';
+import { newQuestion } from './mathgame_logic';
 
 
 function MathMainAdv() {
@@ -37,12 +37,7 @@ function MathMainAdv() {
     };
 
     fetchData();
-    //const lev = parseInt(localStorage.getItem('level'));
-
-    //setLevScore({ ...levScore, "lev": level});
-
-    //const {lev, score} = levScore;
-    newQuestion();
+    newQuestion(level, operator,  setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
 
 
     return () => {
@@ -52,75 +47,73 @@ function MathMainAdv() {
   }, [useSecondCanvas, operator]);
 
 
-  function newQuestion() {
-    let tempAnswer;
-    var NUM1, NUM2;
-    if (operator === "+" || operator === "-") {
-      NUM1 = getRandomNumber(level);
-      // console.log(NUM1);
-      NUM2 = getRandomNumber(level);
-      // console.log(NUM2);
-      setAdNum1(NUM1);
-      setAdNum2(NUM2);
-      if (operator === "+") {
-        tempAnswer = NUM1 + NUM2;
-      }
-      else if (operator === "-") {
-        if (NUM1 < NUM2) {
-          tempAnswer = NUM2 - NUM1;
-          setAdNum1(NUM2);
-          setAdNum2(NUM1);
-        } else {
-          tempAnswer = NUM1 - NUM2;
-        }
-      }
-    }
-    else if (operator === "x" || operator === "/") {
-      if (operator === "x") {
-        var spLevel;
-        if (level < 3) {
-          spLevel = 1;
-        } else {
-          spLevel = 2;
-        }
+  // function newQuestion() {
+  //   let tempAnswer;
+  //   var NUM1, NUM2;
+  //   if (operator === "+" || operator === "-") {
+  //     NUM1 = getRandomNumber(level);
+  //     NUM2 = getRandomNumber(level);
+  //     setAdNum1(NUM1);
+  //     setAdNum2(NUM2);
+  //     if (operator === "+") {
+  //       tempAnswer = NUM1 + NUM2;
+  //     }
+  //     else if (operator === "-") {
+  //       if (NUM1 < NUM2) {
+  //         tempAnswer = NUM2 - NUM1;
+  //         setAdNum1(NUM2);
+  //         setAdNum2(NUM1);
+  //       } else {
+  //         tempAnswer = NUM1 - NUM2;
+  //       }
+  //     }
+  //   }
+  //   else if (operator === "x" || operator === "/") {
+  //     if (operator === "x") {
+  //       var spLevel;
+  //       if (level < 3) {
+  //         spLevel = 1;
+  //       } else {
+  //         spLevel = 2;
+  //       }
 
-        do {
-          NUM1 = getRandomNumber(spLevel);
-          NUM2 = getRandomNumber(spLevel); setAdNum1(NUM1);
-          setAdNum2(NUM2);
-        } while (NUM1 * NUM2 == 100);
+  //       do {
+  //         NUM1 = getRandomNumber(spLevel);
+  //         NUM2 = getRandomNumber(spLevel); setAdNum1(NUM1);
+  //         setAdNum2(NUM2);
+  //       } while (NUM1 * NUM2 == 100);
 
-        tempAnswer = NUM1 * NUM2;
-      }
-      else {
-        do {
-          NUM1 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n1 between 1 and 30; // Generate a random number for n1
-          NUM2 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n2
-        } while (NUM1 % NUM2 !== 0); // Repeat until n1 modulus n2 is 0
-        setAdNum1(NUM1);
-        setAdNum2(NUM2);
-        tempAnswer = NUM1 / NUM2;
-      }
-    }
-    setAnswer(tempAnswer);
-    tempAnswer > 9 ? setUseSecondCanvas(true) : setUseSecondCanvas(false);
-    console.log(tempAnswer);
-  }
+  //       tempAnswer = NUM1 * NUM2;
+  //     }
+  //     else {
+  //       do {
+  //         NUM1 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n1 between 1 and 30; // Generate a random number for n1
+  //         NUM2 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n2
+  //       } while (NUM1 % NUM2 !== 0); // Repeat until n1 modulus n2 is 0
+  //       setAdNum1(NUM1);
+  //       setAdNum2(NUM2);
+  //       tempAnswer = NUM1 / NUM2;
+  //     }
+  //   }
+  //   setAnswer(tempAnswer);
+  //   tempAnswer > 9 ? setUseSecondCanvas(true) : setUseSecondCanvas(false);
+  //   console.log(tempAnswer);
+  // }
 
-  function getRandomNumber(lev) {
-    const max = lev * 5;
-    const min = (lev * 5) - 5;
-    const NUM = Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
-    console.log(lev);
-    console.log("MAX" + max);
-    console.log("MIN" + min);
-    console.log("NUM" + NUM);
-    return NUM;
-  }
+  // function getRandomNumber(lev) {
+  //   const max = lev * 5;
+  //   const min = (lev * 5) - 5;
+  //   const NUM = Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
+  //   console.log(lev);
+  //   console.log("MAX" + max);
+  //   console.log("MIN" + min);
+  //   console.log("NUM" + NUM);
+  //   return NUM;
+  // }
 
   function setOperatorHandler(operator) {
     setOperator(operator);
-    newQuestion();
+    newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
   }
 
   function checkAnswerBtnHandler() {
@@ -161,7 +154,7 @@ function MathMainAdv() {
           setRight(true);
           setWrong(false);
           setTimeout(() => {
-            newQuestion();
+            newQuestion(level, operator,  setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
             setRight(false);
             eraseBtnHandler();
             setScore(score + 1);

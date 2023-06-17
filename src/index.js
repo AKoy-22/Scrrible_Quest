@@ -5,6 +5,7 @@ import App from './App';
 import MathMain from './components/math_garden/MathMain';
 import MathMainAdv from './components/math_garden/MathMainAdv';
 import MathLevels from './components/math_garden/MathLevels';
+import WordsMain from './words_river/WordsMain';
 import Welcome from './components/MainMenu';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,6 +17,8 @@ const routes = createBrowserRouter([
   { path: '/home-page', element:<Welcome/>},
   { path: '/math-garden-advanced', element:<MathMainAdv/>},
   { path: '/math-garden-levels', element:<MathLevels/>},
+  { path: '/words-river', element:<WordsMain/>},
+
 
 
 ]);
