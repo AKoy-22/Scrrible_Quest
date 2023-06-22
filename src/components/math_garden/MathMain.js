@@ -1,3 +1,5 @@
+//**this file is to be delted later - it has been refactored into MathMainAdv to accmomodate multiple canvas */
+
 import React, { useRef, useEffect, useState } from 'react';
 import classes from './css/MathMain.module.css'
 import { clearCanvas, prepareCanvas } from './canvas';
@@ -5,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 function MathMain() {
+  /**This component is the main game page where Math Garden is played - level is preset in MathLevels.js */
   const canvasRef = useRef(null);
   let ctx;
   

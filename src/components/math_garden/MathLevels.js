@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function MathLevels(){
-
+/**This component is for choosing the level for Math Garden game  */
     const [level, setLevel] = useState(0);
 
     function levelClickHandler(level){

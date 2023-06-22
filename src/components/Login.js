@@ -4,6 +4,9 @@ import Modal from './Modal';
 import { useState } from 'react';
 
 function Login(props) {
+/**This component is the login page - Entry point to the app 
+ * Create new user form is implemented as a modal overlay controlled by state variable "modalIsVisible"
+*/
 
     const [modalIsVisible, setModalIsVisible] = useState(false)
     const [inputValues, setInputValues] = useState({
@@ -28,35 +31,35 @@ function Login(props) {
         setModalIsVisible(false);
     }
 
-    function loginBtnHandler(event){
+    function loginBtnHandler(event) {
         event.preventDefault();
         console.log("Login Button Clicked");
         console.log(inputValues)
 
-        fetch('http://localhost:8000/login/', {  
-            method: 'POST', 
+        fetch('http://localhost:8000/login/', {
+            method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(inputValues)
-          })
-          .then(response => response.json())
-          .then(data=>{
-            console.log(data.message)
-            if(data.message=='Login successful'){
-                props.handleLogin(inputValues)
-            }
-            else if(data.message == 'Invalid password'){
-                alert("Login failed. Please check your username and/or password !")
-            }
-            else if(data.message == 'Username does not exist'){
-                alert("No such user. Please sign up to create an account ! ")
-            }
-          })
-           .catch(error => {
-             // Handle any errors
-             console.log("There was an error")
-           });
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message)
+                if (data.message == 'Login successful') {
+                    props.handleLogin(inputValues)
+                }
+                else if (data.message == 'Invalid password') {
+                    alert("Login failed. Please check your username and/or password !")
+                }
+                else if (data.message == 'Username does not exist') {
+                    alert("No such user. Please sign up to create an account ! ")
+                }
+            })
+            .catch(error => {
+                // Handle any errors
+                console.log("There was an error")
+            });
     }
 
     return (
@@ -70,9 +73,9 @@ function Login(props) {
             <div className={classes.container}>
                 <form>
                     <label htmlFor="username">Your Username</label>
-                    <input type="text" id="username" name="username" required onChange={handleInputChange}/>
+                    <input type="text" id="username" name="username" required onChange={handleInputChange} />
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" required onChange={handleInputChange}/>
+                    <input type="password" id="password" name="password" required onChange={handleInputChange} />
                     <button type="submit" onClick={loginBtnHandler}>Login</button>
                 </form>
             </div>

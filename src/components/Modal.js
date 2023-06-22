@@ -1,7 +1,7 @@
 import classes from './css/Modal.module.css';
 
 function Modal({children, hideModalHander}){
-
+/**This is a modal containing the create new user form */
     return(
         <>
         <div className={classes.backdrop} >

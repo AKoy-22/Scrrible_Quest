@@ -3,6 +3,9 @@ import classes from './css/NewUser.module.css';
 import React, {useState} from 'react';
 
 function NewUser(){
+  /**This is the create new user form inside the modal
+   * If form is valid, new user is created in saved in backend database
+   */
     const [inputValues, setInputValues] = useState({
         username:'',
         first_name: '',
@@ -51,6 +54,7 @@ function NewUser(){
         return true; // Form is valid
       }
 
+    //sends data to backend if form is valid   
     function registerBtnHandler(event){
 
         const isFormValid = validateForm();

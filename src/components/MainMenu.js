@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 function Welcome({handleLogout}){
-
+/**This component is the main menu page with two options 1. Math and 2.Words */
     let storedUserName = localStorage.getItem('userStorageName');
     storedUserName = storedUserName ? storedUserName.charAt(0).toUpperCase() + storedUserName.slice(1) : '';
     return(

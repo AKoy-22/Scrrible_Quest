@@ -22,7 +22,7 @@ function MathMainAdv() {
 
 
   useEffect(() => {
-
+    //prepare and load the canva(s)
     const canvas1 = canvasRef1.current;
     ctx1 = canvas1.getContext('2d', { willReadFrequently: true });
     const removeEventListeners1 = prepareCanvas(canvas1, ctx1);
@@ -31,91 +31,32 @@ function MathMainAdv() {
     ctx2 = canvas2.getContext('2d', { willReadFrequently: true });
     const removeEventListeners2 = prepareCanvas(canvas2, ctx2);
 
+    //retrieve level stored in local storage
     const fetchData = async () => {
       const level = parseInt(localStorage.getItem('level'));
       setLevel(parseInt(localStorage.getItem('level')));
     };
 
     fetchData();
-    newQuestion(level, operator,  setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
+    //generate new question 
+    newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
 
 
     return () => {
+      //clearing the eventlistners to reset the canvas
       removeEventListeners1();
       removeEventListeners2();
     };
   }, [useSecondCanvas, operator]);
 
 
-  // function newQuestion() {
-  //   let tempAnswer;
-  //   var NUM1, NUM2;
-  //   if (operator === "+" || operator === "-") {
-  //     NUM1 = getRandomNumber(level);
-  //     NUM2 = getRandomNumber(level);
-  //     setAdNum1(NUM1);
-  //     setAdNum2(NUM2);
-  //     if (operator === "+") {
-  //       tempAnswer = NUM1 + NUM2;
-  //     }
-  //     else if (operator === "-") {
-  //       if (NUM1 < NUM2) {
-  //         tempAnswer = NUM2 - NUM1;
-  //         setAdNum1(NUM2);
-  //         setAdNum2(NUM1);
-  //       } else {
-  //         tempAnswer = NUM1 - NUM2;
-  //       }
-  //     }
-  //   }
-  //   else if (operator === "x" || operator === "/") {
-  //     if (operator === "x") {
-  //       var spLevel;
-  //       if (level < 3) {
-  //         spLevel = 1;
-  //       } else {
-  //         spLevel = 2;
-  //       }
-
-  //       do {
-  //         NUM1 = getRandomNumber(spLevel);
-  //         NUM2 = getRandomNumber(spLevel); setAdNum1(NUM1);
-  //         setAdNum2(NUM2);
-  //       } while (NUM1 * NUM2 == 100);
-
-  //       tempAnswer = NUM1 * NUM2;
-  //     }
-  //     else {
-  //       do {
-  //         NUM1 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n1 between 1 and 30; // Generate a random number for n1
-  //         NUM2 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n2
-  //       } while (NUM1 % NUM2 !== 0); // Repeat until n1 modulus n2 is 0
-  //       setAdNum1(NUM1);
-  //       setAdNum2(NUM2);
-  //       tempAnswer = NUM1 / NUM2;
-  //     }
-  //   }
-  //   setAnswer(tempAnswer);
-  //   tempAnswer > 9 ? setUseSecondCanvas(true) : setUseSecondCanvas(false);
-  //   console.log(tempAnswer);
-  // }
-
-  // function getRandomNumber(lev) {
-  //   const max = lev * 5;
-  //   const min = (lev * 5) - 5;
-  //   const NUM = Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
-  //   console.log(lev);
-  //   console.log("MAX" + max);
-  //   console.log("MIN" + min);
-  //   console.log("NUM" + NUM);
-  //   return NUM;
-  // }
-
+  //when another operator is chose, new question is rendered
   function setOperatorHandler(operator) {
     setOperator(operator);
     newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
   }
 
+  //send image data to backend and validate answer with response
   function checkAnswerBtnHandler() {
     const canvas1 = canvasRef1.current;
     const canvas2 = canvasRef2.current;
@@ -154,16 +95,16 @@ function MathMainAdv() {
           setRight(true);
           setWrong(false);
           setTimeout(() => {
-            newQuestion(level, operator,  setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
+            newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
             setRight(false);
             eraseBtnHandler();
             setScore(score + 1);
-          }, 2000); // Delay of 3 seconds (3000 milliseconds)
+          }, 2000); // Delay of 2 seconds (2000 milliseconds)
         } else {
           setWrong(true);
           setTimeout(() => {
             eraseBtnHandler();
-          }, 2000)
+          }, 2000) // Delay of 2 seconds (2000 milliseconds)
         }
       })
       .catch(error => {
@@ -171,7 +112,7 @@ function MathMainAdv() {
         console.error(error);
       });
   }
-
+  //clears the canvase when Erase button is clicked 
   function eraseBtnHandler() {
     const canvas1 = canvasRef1.current;
     const canvas2 = canvasRef2.current;
@@ -180,7 +121,7 @@ function MathMainAdv() {
     clearCanvas(canvas1, ctx1);
     clearCanvas(canvas2, ctx2);
   }
-  // Rest of the code...
+
 
   return (
     <>
@@ -196,7 +137,7 @@ function MathMainAdv() {
           <canvas className={classes.myCanvas} ref={canvasRef2} width="150" height="150"
             style={!useSecondCanvas ? { display: 'none' } : {}}>error</canvas>
         </div>
-        {/* Rest of the JSX code... */}
+
         <div className={classes.topLeftBtns}>
           <button onClick={eraseBtnHandler}>Erase</button>
           <button>Hint</button>
@@ -210,7 +151,7 @@ function MathMainAdv() {
       <div className={classes.container}>
         <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
       </div>
-      {/* Rest of the JSX code... */}
+
     </>
   );
 }

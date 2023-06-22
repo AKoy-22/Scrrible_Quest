@@ -1,3 +1,4 @@
+/**Defines the game logic for Math Garden*/
 export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas) {
     let tempAnswer;
     var NUM1, NUM2;
@@ -39,7 +40,7 @@ export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, se
       }
       else {
         do {
-          NUM1 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n1 between 1 and 30; // Generate a random number for n1
+          NUM1 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n1 between 1 and 50; 
           NUM2 = Math.floor(Math.random() * 51) + 1; // Generate a random number for n2
         } while (NUM1 % NUM2 !== 0); // Repeat until n1 modulus n2 is 0
         setAdNum1(NUM1);
@@ -52,7 +53,8 @@ export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, se
     console.log(tempAnswer);
   }
 
-  export function getRandomNumber(lev) {
+  //called inside newQuestion function
+function getRandomNumber(lev) {
     const max = lev * 5;
     const min = (lev * 5) - 5;
     const NUM = Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
