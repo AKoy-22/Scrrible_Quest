@@ -1,0 +1,133 @@
+body {
+    font-family: 'Just Another Hand', cursive;
+    background-color: #b2e1b7;
+    width: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .title {
+    font-size: 120px;
+    color: #f4ec8c;
+    letter-spacing: 8px;
+    font-weight: 100;
+    margin-bottom: 50px;
+  }
+  
+  h2 {
+    font-size: 150px;
+  }
+  
+  h3 {
+    font-size: 100px;
+  }
+  
+  .question {
+    display: inline;
+    color: #FFFFFF;
+    font-family:cursive;
+    letter-spacing: normal;
+    
+  }
+  
+  
+  .myCanvas{
+    border-radius: 10px;
+    vertical-align: top;
+    display: inline;
+    border: solid 5px #FFFFFF;
+  }
+  
+  .container{
+    text-align: center;
+    margin: 50px auto;
+    display: block;
+  }
+  
+  .canvasContainer{
+    text-align: center;
+    margin: 5px auto;
+    display: block;
+  }
+  
+  .btn {
+    margin: 10px;
+    background-color: #7BB293;
+    border-radius: 20px;
+    border-width: 0;
+    cursor: pointer;
+    color: whitesmoke;
+    line-height: 70px;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 70px;
+    letter-spacing: 3px;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: 30px;
+    max-width: 30%;
+    width: 20rem;
+  }
+  
+  .btn:hover {
+    background-color: #f4ec8c;
+    color: #242E6B;
+  }
+  
+  .topLeftBtns {
+    margin: 5px 0 ;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .topLeftBtns button{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 40px;
+    letter-spacing: 3px;
+    padding: 10px 30px 0 30px;
+    margin-left: 10px;
+    text-align: center;
+    background-color: #EFA4A0;
+    border-radius: 20px;
+    border-style: none;
+    color: whitesmoke;
+  }
+  
+  .topLeftBtns button:hover{
+    background-color: whitesmoke;
+    color: #EFA4A0;;
+  }
+  
+  .topLeftBtns .opt{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 40px;
+    letter-spacing: 3px;
+    padding: 10px 30px 0 30px;
+    margin-left: 10px;
+    text-align: center;
+    background-color: #89A8CD;
+    border-radius: 20px;
+    border-style: none;
+    color: whitesmoke;
+  }
+  .topLeftBtns .opt:hover{
+  background-color: whitesmoke;
+  color: #89A8CD;;
+  }
+  
+  .homeLink {
+    position: absolute;
+    top: 5px; 
+    right: 10px; 
+    text-decoration: none;
+    color:  #89A8CD; 
+    letter-spacing: 5px;
+    font-size: 40px;
+    cursor: pointer;
+  }
+  
+
+   

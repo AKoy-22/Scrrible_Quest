@@ -73,7 +73,7 @@ function MathMainAdv() {
 
     console.log(imageDataURL);
 
-    fetch('http://localhost:8000/process-image/', {
+    fetch('http://localhost:8000/process-image/number', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
