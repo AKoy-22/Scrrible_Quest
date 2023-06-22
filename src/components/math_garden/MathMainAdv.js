@@ -118,8 +118,14 @@ function MathMainAdv() {
     const canvas2 = canvasRef2.current;
     ctx1 = canvas1.getContext('2d', { willReadFrequently: true });
     ctx2 = canvas2.getContext('2d', { willReadFrequently: true });
-    clearCanvas(canvas1, ctx1);
-    clearCanvas(canvas2, ctx2);
+    //to avoid error when canvas is empty  
+    if(ctx1 && ctx2){
+      clearCanvas(canvas1, ctx1);
+      clearCanvas(canvas2, ctx2);
+    }else if(ctx1){
+      clearCanvas(canvas1, ctx1);
+    }
+
   }
 
 
@@ -144,7 +150,7 @@ function MathMainAdv() {
           <button className={classes.opt} onClick={() => setOperatorHandler("+")}>+</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("-")}>-</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("x")}>x</button>
-          {level > 3 ? <button onClick={() => setOperatorHandler("/")}>/</button> : null}
+          {level > 3 ? <button className={classes.opt} onClick={() => setOperatorHandler("/")}>/</button> : null}
         </div>
 
       </div>

@@ -11,7 +11,7 @@ h2 {
   font-size: 5vw; /* Adjust font size using vw unit for responsive scaling */
   color: #f4ec8c;
   letter-spacing: 0.5vw; /* Adjust letter spacing using vw unit */
-  font-weight: 500; /* Corrected typo: 500 instead of 50 */
+  font-weight: 500; 
   text-align: center;
   margin: 0;
   letter-spacing: 1.2vw; /* Adjust letter spacing using vw unit */

@@ -10,10 +10,10 @@ body{
 
 .logoutLink {
     position: absolute;
-    top: 20px; /* Adjust the top position as needed */
-    right: 50px; /* Adjust the right position as needed */
+    top: 20px; 
+    right: 50px; 
     text-decoration: none;
-    color: #EFA4A0; /* Adjust the color as needed */
+    color: #EFA4A0; 
     letter-spacing: 5px;
     font-size: 40px;
     cursor: pointer;
@@ -23,24 +23,23 @@ body{
     margin-bottom: 20px;
 }
 
-h3 {
+.subTitle {
+    margin: 50px auto;
     font-size: 80px;
     color:  whitesmoke;
     font-weight:50;  
     text-align: center;
-    margin: 0;
     letter-spacing: 5px;
-
+   
   }
 
   ul {
-    margin-top: 100px;
+    margin-top: 150px;
     list-style: none;
     display: flex;
     justify-content: center;
   }
 
-  /* #7BB293; */
 
   .gameLink{
     padding: 5px 25px;

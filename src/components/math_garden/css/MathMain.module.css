@@ -31,7 +31,7 @@ h3 {
   
 }
 
-/* TODO: Styling by id: add styling for canvas */
+
 .myCanvas {
   border-radius: 10px;
   vertical-align: top;
@@ -123,7 +123,7 @@ color: #89A8CD;;
   top: 5px; 
   right: 10px; 
   text-decoration: none;
-  color: #EFA4A0; 
+  color:  #89A8CD; 
   letter-spacing: 5px;
   font-size: 40px;
   cursor: pointer;
