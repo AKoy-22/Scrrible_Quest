@@ -81,6 +81,7 @@ export function prepareCanvas(canvas, ctx) {
     ctx.lineTo(currentX, currentY);
     ctx.closePath();
     ctx.stroke();
+    ctx.beginPath();
   }
 
   return function removeEventListeners() {

@@ -12,7 +12,7 @@ body {
     color: #f4ec8c;
     letter-spacing: 8px;
     font-weight: 100;
-    margin-bottom: 50px;
+    margin-bottom: 0;
   }
   
   h2 {
@@ -28,20 +28,29 @@ body {
     color: #FFFFFF;
     font-family:cursive;
     letter-spacing: normal;
-    
+    align-items: center;
+    justify-content: center;
+
   }
+
+  .container span{
+    font-size: 150px;
+    color: whitesmoke;
+    font-family: cursive;
+  }
+
   
-  
-  .myCanvas{
+  .wordCanvas{
     border-radius: 10px;
     vertical-align: top;
-    display: inline;
     border: solid 5px #FFFFFF;
+    margin-top: 45px;
+
   }
   
   .container{
     text-align: center;
-    margin: 50px auto;
+    margin: 10px auto;
     display: block;
   }
   
@@ -69,6 +78,31 @@ body {
     margin-right: 30px;
     max-width: 30%;
     width: 20rem;
+  }
+
+  .btnSpeak {
+    margin: 10px;
+    background-color:#89A8CD;
+    border-radius: 20px;
+    border-width: 0;
+    cursor: pointer;
+    color: whitesmoke;
+    line-height: 70px;
+    font-family: 'Just Another Hand', cursive;
+    font-size: 70px;
+    letter-spacing: 3px;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: 30px;
+    max-width: 30%;
+    width: 20rem;
+  }
+
+  .btnSpeak:hover {
+    background-color:#242E6B;
+    color:#EFA4A0;
   }
   
   .btn:hover {
