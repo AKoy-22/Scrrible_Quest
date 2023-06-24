@@ -85,8 +85,8 @@ function MathMainAdv() {
         // Handle the response from the backend
         console.log(data);
         var predicted_num_tot;
-        !useSecondCanvas ? predicted_num_tot = data.predicted_numbers[0]
-          : predicted_num_tot = (data.predicted_numbers[0]).toString() + (data.predicted_numbers[1]).toString();
+        !useSecondCanvas ? predicted_num_tot = data.predictions[0]
+          : predicted_num_tot = (data.predictions[0]).toString() + (data.predictions[1]).toString();
 
         console.log("predicted Total: " + predicted_num_tot + "real answer: " + answer);
 

@@ -40,9 +40,12 @@ function WordsMain() {
   const [indexToReplace, setIndexToReplace] = useState(2);
   const [canvasReady, setCanvasReady] = useState(false);
   const [word, setWord] = useState('apple');
+  const [answer, setAnswer] = useState('');
 
-  // useEffect(() => {
-  // },[])
+   useEffect(() => {
+    setAnswer(word.charAt(indexToReplace));
+    console.log(answer);
+   },[indexToReplace, word])
 
 
   useEffect(() => {
@@ -53,11 +56,9 @@ function WordsMain() {
       const context = c1.getContext('2d', { willReadFrequently: true });
       const removeEventListeners = prepareCanvas(c1, context)
 
-
       return () => {
         // //clearing the eventlistners to reset the canvas
         removeEventListeners();
-
       };
     }
 
@@ -66,8 +67,17 @@ function WordsMain() {
   const handleSpeak = () => {
     speakWord(word);
     logAvailableVoices();
-
   };
+
+  function getIndexFromLetter() {
+
+    const uppercaseLetter = answer.toUpperCase();
+    const uppercaseA = 'A'.charCodeAt(0);
+    const letterCode = uppercaseLetter.charCodeAt(0);
+    const index = letterCode - uppercaseA;
+    return index;
+  }
+  
 
   function checkAnswerBtnHandler() {
     setCanvasReady(false);
@@ -80,29 +90,32 @@ function WordsMain() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ image: imageDataURL }),
+      body: JSON.stringify({ image: [imageDataURL] }),
     })
       .then(response => response.json())
       .then(data => {
         // Handle the response from the backend
         console.log(data);
-        const prediction = data.predicted_numbers[0];
+        const prediction = data.predictions[0];
         console.log(prediction);
+        const answerIndex= getIndexFromLetter();
+        if(answerIndex == parseInt(prediction)){
+          console.log("that is correct !");
 
+        }else{
+          console.log("oops ! try again !")
+        }
       })
       .catch(error => {
         // Handle any errors
         console.error(error);
       });
-
   }
 
   function eraseBtnHandler() {
     const canvas1 = canvRef.current;
     const ctx1 = canvas1.getContext('2d', { willReadFrequently: true });
-
     clearCanvas(canvas1, ctx1);
-
   }
 
   return (
@@ -135,11 +148,6 @@ function WordsMain() {
         })}
         {/* <canvas className={classes.wordCanvas} ref={canvRef} width="150" height="150">error</canvas> */}
       </div>
-
-
-
-
-
 
       <div className={classes.topLeftBtns}>
         <button onClick={eraseBtnHandler}>Erase</button>
