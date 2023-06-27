@@ -13,7 +13,7 @@ function Welcome({handleLogout}){
             <h3 className={classes.subTitle}>Where do you want to go today ?</h3>
             <ul>
                 <li ><Link className={classes.gameLink} to="/math-garden-levels">Math Garden</Link></li>
-                <li ><Link className={classes.gameLink} to="/words-river">Words River</Link></li>
+                <li ><Link className={classes.gameLink} to="/words-river-levels">Words River</Link></li>
             </ul>
         </div>
     );

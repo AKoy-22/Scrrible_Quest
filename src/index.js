@@ -10,6 +10,7 @@ import Welcome from './components/MainMenu';
 import reportWebVitals from './reportWebVitals';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import WordLevels from './words_river/WordLevels';
 
 const routes = createBrowserRouter([
   { path: '/', element:<App/>}, // our-domain 
@@ -18,7 +19,7 @@ const routes = createBrowserRouter([
   { path: '/math-garden-advanced', element:<MathMainAdv/>},
   { path: '/math-garden-levels', element:<MathLevels/>},
   { path: '/words-river', element:<WordsMain/>},
-
+  { path: '/words-river-levels', element:<WordLevels/>},
 
 
 ]);

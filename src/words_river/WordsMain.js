@@ -2,55 +2,42 @@ import React, { useState, useRef, useEffect } from 'react';
 import classes from './css/wordsMain.module.css'
 import { Link } from 'react-router-dom';
 import { clearCanvas, prepareCanvas } from '../components/math_garden/canvas';
+import { speakWord } from './wordsgame_logic';
 
-function speakWord(word) {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(word);
-
-    // Set the voice
-    const voices = speechSynthesis.getVoices();
-
-    const selVoice = Math.round(Math.floor(Math.random() * 4) + 1);
-    const selectedVoice = voices[selVoice];
-    utterance.voice = selectedVoice;
-
-    // Set the pitch
-    utterance.pitch = 1.5;
-    //set the speed
-    utterance.rate = 0.7;
-
-    speechSynthesis.speak(utterance);
-  } else {
-    console.log('Speech synthesis is not supported in this browser.');
-  }
-}
-
-
-function logAvailableVoices() {
-  if ('speechSynthesis' in window) {
-    const voices = speechSynthesis.getVoices();
-    console.log(voices);
-  } else {
-    console.log('Speech synthesis is not supported in this browser.');
-  }
-}
 
 function WordsMain() {
   const canvRef = useRef(null);
-  const [indexToReplace, setIndexToReplace] = useState(2);
-  const [canvasReady, setCanvasReady] = useState(false);
-  const [word, setWord] = useState('apple');
+  const [indexToReplace, setIndexToReplace] = useState();
+  const [canvasReady, setCanvasReady] = useState(false); //ensures that canvas element is rendered before prepare canvas is called
+  const [word, setWord] = useState('');
   const [answer, setAnswer] = useState('');
+  const [right, setRight] = useState(false); //controls corresponding message 
+  const [wrong, setWrong] = useState(false); //controls corresponding message 
+  const [score, setScore] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false); //canvas removed when show answer button is clicked 
 
-   useEffect(() => {
-    setAnswer(word.charAt(indexToReplace));
-    console.log(answer);
-   },[indexToReplace, word])
+  async function getRandomWord(grade) {
+    try {
+      const response = await fetch(`http://localhost:8000/get-random-word/${grade}`);
+      const data = await response.json();
+      const apiWord = data.random_word;
+      setWord(apiWord);
+      const len = apiWord.length;
+      const randomIndex = Math.floor(Math.random() * len);
+      setIndexToReplace(randomIndex);
+      setAnswer(apiWord.charAt(randomIndex));
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  useEffect(() => {
+    getRandomWord('6th');
+  }, [])
 
 
   useEffect(() => {
     //prepare and load the canva(s)
-
     if (canvasReady) {
       const c1 = canvRef.current;
       const context = c1.getContext('2d', { willReadFrequently: true });
@@ -62,27 +49,23 @@ function WordsMain() {
       };
     }
 
-  }, [canvasReady, setIndexToReplace]);
+  }, [canvasReady, word]);
 
-  const handleSpeak = () => {
+  function handleSpeak() {
     speakWord(word);
-    logAvailableVoices();
+    //logAvailableVoices();
   };
 
   function getIndexFromLetter() {
-
     const uppercaseLetter = answer.toUpperCase();
     const uppercaseA = 'A'.charCodeAt(0);
     const letterCode = uppercaseLetter.charCodeAt(0);
     const index = letterCode - uppercaseA;
     return index;
   }
-  
+
 
   function checkAnswerBtnHandler() {
-    setCanvasReady(false);
-    setIndexToReplace(Math.floor(Math.random() * 5));
-
     const canvas1 = canvRef.current;
     const imageDataURL = canvas1.toDataURL();
     fetch('http://localhost:8000/process-image/letter', {
@@ -98,12 +81,26 @@ function WordsMain() {
         console.log(data);
         const prediction = data.predictions[0];
         console.log(prediction);
-        const answerIndex= getIndexFromLetter();
-        if(answerIndex == parseInt(prediction)){
-          console.log("that is correct !");
+        const answerIndex = getIndexFromLetter();
+        if (answerIndex == parseInt(prediction)) {
 
-        }else{
-          console.log("oops ! try again !")
+          console.log("that is correct !");
+          setRight(true);
+          setWrong(false);
+          setTimeout(() => {
+            getRandomWord("6th");
+            setRight(false);
+
+            eraseBtnHandler();
+            setScore(score + 1);
+          }, 2000)
+
+        } else {
+          console.log("oops ! try again !");
+          setWrong(true);
+          setTimeout(() => {
+            eraseBtnHandler();
+          }, 2000);
         }
       })
       .catch(error => {
@@ -118,16 +115,29 @@ function WordsMain() {
     clearCanvas(canvas1, ctx1);
   }
 
+  function showAnswerHandler() {
+    setShowAnswer(true);
+    console.log("show answer clicked");
+
+    setTimeout(() => {
+      setShowAnswer(false);
+      getRandomWord("6th");
+    }, 2000)
+
+  }
   return (
     <div>
       <Link className={classes.homeLink} to="/">Home</Link>
 
       <div className={classes.container}>
-        <h1 className={classes.title}>Words River</h1>
+        {right && <h1 className={classes.yay}>Yay!😆</h1>}
+        {wrong && <h1 className={classes.nay}>Oops! Try again...🧐</h1>}
+        {!right && !wrong && <h1 className={classes.title}>Words River</h1>}
+
 
         {word.split('').map((char, index) => {
 
-          if (index === indexToReplace) {
+          if (index === indexToReplace && !showAnswer) {
             return (
               <canvas
                 className={classes.wordCanvas}
@@ -152,6 +162,7 @@ function WordsMain() {
       <div className={classes.topLeftBtns}>
         <button onClick={eraseBtnHandler}>Erase</button>
         <button>Hint</button>
+        <button onClick={showAnswerHandler}>Show Answer</button>
       </div>
 
       <div className={classes.container}>
