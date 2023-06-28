@@ -12,8 +12,26 @@ body {
   color: #f4ec8c;
   letter-spacing: 8px;
   font-weight: 100;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
+
+.yay {
+  color:#89A8CD;
+  font-size: 120px;
+  letter-spacing: 8px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.nay {
+  color:#EFA4A0;
+  font-size: 120px;
+  letter-spacing: 8px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+
 
 h2 {
   font-size: 150px;
@@ -31,6 +49,12 @@ h3 {
   
 }
 
+.hints{
+ display: block;
+ text-align: center;
+ margin-top: 0; 
+}
+
 
 .myCanvas {
   border-radius: 10px;
@@ -41,7 +65,7 @@ h3 {
 
 .container {
   text-align: center;
-  margin: 50px auto;
+  margin: 20px auto;
   display: block;
 }
 
@@ -127,20 +151,4 @@ color: #89A8CD;;
   letter-spacing: 5px;
   font-size: 40px;
   cursor: pointer;
-}
-
-.yay {
-  color:#89A8CD;
-  font-size: 120px;
-  letter-spacing: 8px;
-  font-weight: 100;
-  margin-bottom: 50px;
-}
-
-.nay {
-  color:#EFA4A0;
-  font-size: 120px;
-  letter-spacing: 8px;
-  font-weight: 100;
-  margin-bottom: 50px;
 }

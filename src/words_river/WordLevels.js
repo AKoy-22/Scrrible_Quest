@@ -16,6 +16,7 @@ function WordLevels() {
             <div className={classes.logoutLink} >Logout</div>
             <Link className={classes.homeLink} to="/">Home</Link>
             <div>
+            
                 <h3 className={classes.chooseLevel}>Choose Your Level: </h3>
                 <ul>
                     <div className={classes.levelsContainer} >

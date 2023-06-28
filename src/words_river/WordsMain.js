@@ -15,6 +15,7 @@ function WordsMain() {
   const [wrong, setWrong] = useState(false); //controls corresponding message 
   const [score, setScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false); //canvas removed when show answer button is clicked 
+  const [level, setLevel ] = useState();
 
   async function getRandomWord(grade) {
     try {
@@ -32,7 +33,16 @@ function WordsMain() {
   };
 
   useEffect(() => {
-    getRandomWord('6th');
+   //retrieve level stored in local storage
+    const fetchData = () => {
+      const tempLevel = localStorage.getItem('wordLevel')
+      setLevel(tempLevel);
+      console.log(localStorage.getItem('wordLevel'));
+      getRandomWord(tempLevel);   
+    };
+
+    fetchData(); 
+    
   }, [])
 
 
@@ -88,7 +98,7 @@ function WordsMain() {
           setRight(true);
           setWrong(false);
           setTimeout(() => {
-            getRandomWord("6th");
+            getRandomWord(level);
             setRight(false);
 
             eraseBtnHandler();
@@ -121,12 +131,19 @@ function WordsMain() {
 
     setTimeout(() => {
       setShowAnswer(false);
-      getRandomWord("6th");
+      getRandomWord(level);
     }, 2000)
 
   }
   return (
     <div>
+    <style>
+        {`
+          body {
+            background-color: #89A8CD;
+          }
+        `}
+      </style>
       <Link className={classes.homeLink} to="/">Home</Link>
 
       <div className={classes.container}>

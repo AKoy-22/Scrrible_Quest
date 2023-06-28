@@ -3,6 +3,7 @@ import NewUser from './NewUser';
 import Modal from './Modal';
 import { useState } from 'react';
 
+
 function Login(props) {
 /**This component is the login page - Entry point to the app 
  * Create new user form is implemented as a modal overlay controlled by state variable "modalIsVisible"
@@ -82,7 +83,7 @@ function Login(props) {
             <div>
                 <button className={classes.registerBtn} onClick={createUserBtnHandler}>Or Create User</button>
             </div>
-
+          
 
         </div>
     );

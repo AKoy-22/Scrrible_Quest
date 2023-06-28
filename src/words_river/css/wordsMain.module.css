@@ -1,12 +1,12 @@
-body {
+/* body {
     font-family: 'Just Another Hand', cursive;
-    background-color: #b2e1b7;
+    background-color:#b2e1b7;
     width: 100%;
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
   }
-  
+   */
   .title {
     font-size: 120px;
     color: #f4ec8c;
@@ -15,6 +15,22 @@ body {
     margin-bottom: 0;
   }
   
+  .nay{
+    font-size: 120px;
+    color: #f4ec8c;
+    letter-spacing: 8px;
+    font-weight: 100;
+    margin-bottom: 0;
+  }
+
+  .yay{
+    font-size: 120px;
+    color: #f4ec8c;
+    letter-spacing: 8px;
+    font-weight: 100;
+    margin-bottom: 0;
+  }
+
   h2 {
     font-size: 150px;
   }
@@ -59,14 +75,14 @@ body {
     margin: 5px auto;
     display: block;
   }
-  
+  /* #F2E2D3; */
   .btn {
     margin: 10px;
-    background-color: #7BB293;
+    background-color:  #242E6B;
     border-radius: 20px;
     border-width: 0;
     cursor: pointer;
-    color: whitesmoke;
+    color:#CCD6E1;
     line-height: 70px;
     font-family: 'Just Another Hand', cursive;
     font-size: 70px;
@@ -82,11 +98,11 @@ body {
 
   .btnSpeak {
     margin: 10px;
-    background-color:#89A8CD;
+    background-color:#CCD6E1;
     border-radius: 20px;
     border-width: 0;
     cursor: pointer;
-    color: whitesmoke;
+    color:  #242E6B;
     line-height: 70px;
     font-family: 'Just Another Hand', cursive;
     font-size: 70px;
@@ -132,7 +148,7 @@ body {
   
   .topLeftBtns button:hover{
     background-color: whitesmoke;
-    color: #EFA4A0;;
+    color: #EFA4A0;
   }
   
   .topLeftBtns .opt{
@@ -157,7 +173,7 @@ body {
     top: 5px; 
     right: 10px; 
     text-decoration: none;
-    color:  #89A8CD; 
+    color:  #EFA4A0;
     letter-spacing: 5px;
     font-size: 40px;
     cursor: pointer;

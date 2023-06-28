@@ -3,6 +3,7 @@ import classes from './css/MathMain.module.css';
 import { clearCanvas, prepareCanvas } from './canvas';
 import { Link } from 'react-router-dom';
 import { newQuestion } from './mathgame_logic';
+import { renderCircles } from './hint';
 
 
 function MathMainAdv() {
@@ -19,7 +20,18 @@ function MathMainAdv() {
   const [score, setScore] = useState(0);
   const [operator, setOperator] = useState("+");
   const [answer, setAnswer] = useState();
+  const [hint, setHint] = useState(false);
 
+
+  useEffect(() => {
+    //retrieve level stored in local storage
+    const fetchData = async () => {
+      const level = parseInt(localStorage.getItem('level'));
+      setLevel(parseInt(localStorage.getItem('level')));
+    };
+
+    fetchData();
+  }, [])
 
   useEffect(() => {
     //prepare and load the canva(s)
@@ -31,13 +43,7 @@ function MathMainAdv() {
     ctx2 = canvas2.getContext('2d', { willReadFrequently: true });
     const removeEventListeners2 = prepareCanvas(canvas2, ctx2);
 
-    //retrieve level stored in local storage
-    const fetchData = async () => {
-      const level = parseInt(localStorage.getItem('level'));
-      setLevel(parseInt(localStorage.getItem('level')));
-    };
-
-    fetchData();
+    //
     //generate new question 
     newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
 
@@ -54,6 +60,7 @@ function MathMainAdv() {
   function setOperatorHandler(operator) {
     setOperator(operator);
     newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
+    setHint(false);
   }
 
   //send image data to backend and validate answer with response
@@ -94,6 +101,7 @@ function MathMainAdv() {
           console.log("That is correct!");
           setRight(true);
           setWrong(false);
+          setHint(false);
           setTimeout(() => {
             newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
             setRight(false);
@@ -119,15 +127,18 @@ function MathMainAdv() {
     ctx1 = canvas1.getContext('2d', { willReadFrequently: true });
     ctx2 = canvas2.getContext('2d', { willReadFrequently: true });
     //to avoid error when canvas is empty  
-    if(ctx1 && ctx2){
+    if (ctx1 && ctx2) {
       clearCanvas(canvas1, ctx1);
       clearCanvas(canvas2, ctx2);
-    }else if(ctx1){
+    } else if (ctx1) {
       clearCanvas(canvas1, ctx1);
     }
 
   }
 
+  function hintBtnHandler(){
+    setHint(true);
+  }
 
   return (
     <>
@@ -138,6 +149,15 @@ function MathMainAdv() {
         {!right && !wrong && <h1 className={classes.title}>Math Garden</h1>}
         <Link className={classes.homeLink} onClick={eraseBtnHandler} to="/">Home</Link>
         <div className={classes.question}>
+          {hint &&    
+          <div className={classes.hints}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="80">
+                {renderCircles(adNum1)}
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="550" height="80">
+                {renderCircles(adNum2)}
+            </svg> 
+          </div> }
           <h2 className={classes.question}> <span id='n1'>{adNum1}</span> {operator} <span id='n2'>{adNum2}</span> = </h2>
           <canvas className={classes.myCanvas} ref={canvasRef1} width="150" height="150">error</canvas>
           <canvas className={classes.myCanvas} ref={canvasRef2} width="150" height="150"
@@ -146,7 +166,7 @@ function MathMainAdv() {
 
         <div className={classes.topLeftBtns}>
           <button onClick={eraseBtnHandler}>Erase</button>
-          <button>Hint</button>
+          {level==1 || level==2 && <button onClick={hintBtnHandler}>Hint</button>}
           <button className={classes.opt} onClick={() => setOperatorHandler("+")}>+</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("-")}>-</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("x")}>x</button>
