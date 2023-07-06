@@ -166,7 +166,7 @@ function MathMainAdv() {
 
         <div className={classes.topLeftBtns}>
           <button onClick={eraseBtnHandler}>Erase</button>
-          {level==1 || level==2 && <button onClick={hintBtnHandler}>Hint</button>}
+          {level==1 || level==2 ? <button onClick={hintBtnHandler}>Hint</button>:null}
           <button className={classes.opt} onClick={() => setOperatorHandler("+")}>+</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("-")}>-</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("x")}>x</button>
