@@ -177,7 +177,7 @@ function MathMainAdv() {
       <div className={classes.container}>
         <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
       </div>
-
+         
     </>
   );
 }

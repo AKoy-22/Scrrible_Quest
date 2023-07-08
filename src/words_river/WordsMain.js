@@ -3,7 +3,7 @@ import classes from './css/wordsMain.module.css'
 import { Link } from 'react-router-dom';
 import { clearCanvas, prepareCanvas } from '../components/math_garden/canvas';
 import { speakWord } from './wordsgame_logic';
-
+import spawner from '../images/spawner.png';
 
 function WordsMain() {
   const canvRef = useRef(null);
@@ -186,6 +186,7 @@ function WordsMain() {
         <button className={classes.btnSpeak} onClick={handleSpeak}>Speak Word</button>
         <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
       </div>
+      <div><img src={spawner} alt='image of a spawner'></img></div>
     </div>
 
 
