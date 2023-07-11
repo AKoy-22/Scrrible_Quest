@@ -17,22 +17,26 @@ function WordLevels() {
         {`
         body {
             background-color: #89A8CD;
+            background-image:url('../images/fish-bg.png');
+            background-size: cover;
+            background-position: center;
+
           }
         `}
       </style>
             <div className={classes.logoutLink} >Logout</div>
-            <Link className={classes.homeLink} to="/">Home</Link>
+            <Link className={classes.homeLink} style={{color:'#EFA4A0' }} to="/">Home</Link>
             <div>
             
                 <h3 className={classes.chooseLevel}>Choose Your Level: </h3>
                 <ul>
                     <div className={classes.levelsContainer} >
-                        <li ><Link className={classes.levelsLink} onClick={() => levelClickHandler("1st")} to="/words-river">Eggs</Link></li>
-                        <li ><Link className={classes.levelsLink} onClick={() => levelClickHandler("2nd")} to="/words-river">Alevin</Link></li>
-                        <li ><Link className={classes.levelsLink} onClick={() => levelClickHandler("3rd")} to="/words-river">Smolts</Link></li>
-                        <li ><Link className={classes.levelsLink} onClick={() => levelClickHandler("4th")} to="/words-river">Fry</Link></li>
-                        <li ><Link className={classes.levelsLink} onClick={() => levelClickHandler("5th")} to="/words-river">Adults</Link></li>
-                        <li ><Link className={classes.levelsLink} onClick={() => levelClickHandler("6th")} to="/words-river">Spanwers</Link></li>
+                        <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("1st")} to="/words-river">Eggs</Link></li>
+                        <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("2nd")} to="/words-river">Alevin</Link></li>
+                        <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("3rd")} to="/words-river">Smolts</Link></li>
+                        <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("4th")} to="/words-river">Fry</Link></li>
+                        <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("5th")} to="/words-river">Adults</Link></li>
+                        <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("6th")} to="/words-river">Spawners</Link></li>
                     </div>
                 </ul>
             </div>

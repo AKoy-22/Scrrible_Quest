@@ -142,6 +142,16 @@ function MathMainAdv() {
 
   return (
     <>
+    <style>
+    {`
+        body {
+          background-image:url('../images/flower-purple.svg'), url('../images/flower-yellow.svg'),url('../images/bush.svg'), url('../images/bush.svg'), url('../images/bush.svg'),url('../images/bush.svg'), url('../images/ant.svg'), url('../images/bee.png');
+          background-size:30%, 30%, 15%, 15%, 15%, 15%, 2%, 3%;
+          background-position: right -10px bottom -100px, left bottom -100px, left -10px bottom -100px, left 180px bottom -100px, right -10px bottom -100px, right 180px bottom -100px, center bottom -100px, left;
+          }
+        `}
+    </style>
+    <div> 
       <div className={classes.container}>
         {right && <h1 className={classes.yay}>Yay!😆</h1>}
         {wrong && <h1 className={classes.nay}>Oops! Try again...🧐</h1>}
@@ -177,7 +187,7 @@ function MathMainAdv() {
       <div className={classes.container}>
         <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
       </div>
-         
+      </div>
     </>
   );
 }
