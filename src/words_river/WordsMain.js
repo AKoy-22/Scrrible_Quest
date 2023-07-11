@@ -3,7 +3,12 @@ import classes from './css/wordsMain.module.css'
 import { Link } from 'react-router-dom';
 import { clearCanvas, prepareCanvas } from '../components/math_garden/canvas';
 import { speakWord } from './wordsgame_logic';
-import spawner from '../images/spawner.png';
+// import salmon1 from '../images/salmon-1.png';
+// import salmon2 from '../images/salmon-2.png';
+// import salmon3 from '../images/salmon-3.png';
+// import salmon4 from '../images/salmon-4.png';
+// import seaweed1 from '../images/seaweed1.svg';
+
 
 function WordsMain() {
   const canvRef = useRef(null);
@@ -15,7 +20,9 @@ function WordsMain() {
   const [wrong, setWrong] = useState(false); //controls corresponding message 
   const [score, setScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false); //canvas removed when show answer button is clicked 
-  const [level, setLevel ] = useState();
+  const [level, setLevel] = useState();
+  const [salmonImg, setSalmonImg] = useState(null);
+
 
   async function getRandomWord(grade) {
     try {
@@ -33,16 +40,16 @@ function WordsMain() {
   };
 
   useEffect(() => {
-   //retrieve level stored in local storage
+    //retrieve level stored in local storage
     const fetchData = () => {
       const tempLevel = localStorage.getItem('wordLevel')
       setLevel(tempLevel);
       console.log(localStorage.getItem('wordLevel'));
-      getRandomWord(tempLevel);   
+      getRandomWord(tempLevel);
     };
 
-    fetchData(); 
-    
+    fetchData();
+
   }, [])
 
 
@@ -97,12 +104,15 @@ function WordsMain() {
           console.log("that is correct !");
           setRight(true);
           setWrong(false);
+          setScore(score + 1);
           setTimeout(() => {
             getRandomWord(level);
             setRight(false);
 
             eraseBtnHandler();
-            setScore(score + 1);
+          
+            // setSalmonImg(`../images/salmon-${score}.png`)
+
           }, 2000)
 
         } else {
@@ -135,15 +145,41 @@ function WordsMain() {
     }, 2000)
 
   }
+
+
+  const styles = {
+    margin:0,
+    height: '100vh',
+    
+    backgroundImage: score>0 
+      ? score > 6
+        ? `url('../images/salmon-6.png'), url('../images/seaweed1.svg'), url('../images/seaweed2.svg')`
+        :`url('../images/salmon-${score}.png'), url('../images/seaweed1.svg'), url('../images/seaweed2.svg')`
+      :`url('../images/seaweed1.svg'), url('../images/seaweed2.svg')` ,   
+    backgroundSize: '55%, 40%, 40% ',
+    backgroundPosition: score > 0
+    ? score > 6
+      ? 'left  bottom -100px, right, left'
+      : 'left  bottom -100px, right, left'
+    : 'right, left',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+   
+  };
+
+
   return (
-    <div>
-    <style>
+   <div>     
+   <style>
         {`
-          body {
+        body {
             background-color: #89A8CD;
           }
         `}
       </style>
+ 
+    <div style={styles}>
+
       <Link className={classes.homeLink} to="/">Home</Link>
 
       <div className={classes.container}>
@@ -185,11 +221,13 @@ function WordsMain() {
       <div className={classes.container}>
         <button className={classes.btnSpeak} onClick={handleSpeak}>Speak Word</button>
         <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
+
+
       </div>
-      <div><img src={spawner} alt='image of a spawner'></img></div>
+      {/* <img  src='../images/salmon-1.png' alt='image of a salmon'></img> */}
     </div>
 
-
+</div>
   );
 }
 

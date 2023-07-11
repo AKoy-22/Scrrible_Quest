@@ -7,6 +7,18 @@
     background-size: cover;
   }
    */
+/* 
+  .content{
+    height: 100vh;
+    background-image: url('../../images/salmon-2.png'), url('../../images/seaweed1.svg'), url('../../images/seaweed2.svg');
+    background-size: 35%;
+    background-position: left center, right, left;
+    background-repeat: no-repeat;
+    width: 100%;
+  } */
+
+
+
   .title {
     font-size: 120px;
     color: #f4ec8c;

@@ -13,6 +13,13 @@ function WordLevels() {
 
     return (
         <div>
+         <style>
+        {`
+        body {
+            background-color: #89A8CD;
+          }
+        `}
+      </style>
             <div className={classes.logoutLink} >Logout</div>
             <Link className={classes.homeLink} to="/">Home</Link>
             <div>
