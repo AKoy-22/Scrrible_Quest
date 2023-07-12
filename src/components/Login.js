@@ -67,7 +67,7 @@ function Login(props) {
         <div>
             {modalIsVisible ?
                 <Modal hideModalHander={hideModalHander}>
-                    <NewUser />
+                    <NewUser hideModalHander={hideModalHander}/>
                 </Modal>
                 : null}
             <h2>Welcome !</h2>

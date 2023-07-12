@@ -2,7 +2,7 @@
 import classes from './css/NewUser.module.css';
 import React, {useState} from 'react';
 
-function NewUser(){
+function NewUser({hideModalHander}){
   /**This is the create new user form inside the modal
    * If form is valid, new user is created in saved in backend database
    */
@@ -72,6 +72,8 @@ function NewUser(){
         .then(response => {
            // Handle the response from the Django backend
            console.log(response.status);
+           hideModalHander();//sets modalIsVisible=false to clear the form if registration is successful. 
+           alert("You are registered. Please login with your username and password !")
          })
          .catch(error => {
            // Handle any errors
