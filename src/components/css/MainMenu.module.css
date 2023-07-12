@@ -48,14 +48,12 @@ body{
 }
 
 .subTitle {
-    margin: 50px auto;
     font-size: 80px;
     color:  whitesmoke;
     font-weight:50;  
     text-align: center; 
     letter-spacing: 5px;
-    margin: 0 0 2rem 0;
-  
+    margin: 0 auto;
   }
 
   .mainUL {
@@ -78,8 +76,14 @@ body{
     border-radius: 30px;
   }
 
-img{
-  background-color: transparent;
+.starImg{
+  width: 10%;
+  margin: 0 1rem;
+ 
+}
+.subTitleContainer {
+  display: flex;
+  align-items: center;
 }
 
 .mathLink{
