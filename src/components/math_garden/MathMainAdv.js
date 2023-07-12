@@ -140,6 +140,11 @@ function MathMainAdv() {
     setHint(true);
   }
 
+  function checkCurrentScore(){
+
+    localStorage.setItem('currentScore', score);
+    eraseBtnHandler();
+  }
   return (
     <>
     <style>
@@ -157,7 +162,7 @@ function MathMainAdv() {
         {wrong && <h1 className={classes.nay}>Oops! Try again...🧐</h1>}
 
         {!right && !wrong && <h1 className={classes.title}>Math Garden</h1>}
-        <Link className={classes.homeLink} onClick={eraseBtnHandler} to="/">Home</Link>
+        <Link className={classes.homeLink} onClick={checkCurrentScore } to="/">Home</Link>
         <div className={classes.question}>
           {hint &&    
           <div className={classes.hints}>
