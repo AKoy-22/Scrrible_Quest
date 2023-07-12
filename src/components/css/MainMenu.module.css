@@ -1,16 +1,29 @@
 body{
-    margin-top: 50px;
+    margin-top: 1rem;
 }
 .userName {
     font-size: 150px;
     color:  #f4ec8c ;
     display: inline-block;
     transform: rotate(17deg);
+    margin: 0;
+    text-shadow: 1px 1px 3px #5a6c86;
+}
+
+.boygirl  {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+.boygirl img{
+  height: 180px;
+  margin: 0;
 }
 
 .logoutLink {
     position: absolute;
-    top: 20px; 
+    top: 1rem; 
     right: 50px; 
     text-decoration: none;
     color: #EFA4A0; 
@@ -18,9 +31,20 @@ body{
     font-size: 40px;
     cursor: pointer;
 }
+.welcomeContainer{
+  width: 100%;
+  height: 25vh;
+  margin: 0 auto;
+  background-image:  url('../../../public//images/big-rainbow.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .welcome{
     color: #89A8CD;
-    margin-bottom: 20px;
+    margin: 0px; 
+    padding:0;
+    text-shadow: 1px 1px 3px #84865a;
 }
 
 .subTitle {
@@ -28,29 +52,61 @@ body{
     font-size: 80px;
     color:  whitesmoke;
     font-weight:50;  
-    text-align: center;
+    text-align: center; 
     letter-spacing: 5px;
-   
+    margin: 0 0 2rem 0;
+  
   }
 
-  ul {
-    margin-top: 150px;
+  .mainUL {
+    margin: 0px;
     list-style: none;
     display: flex;
     justify-content: center;
   }
 
 
-  .gameLink{
-    padding: 5px 25px;
-    border-radius: 40px;
-    background-color: #EFA4A0;
-    color:white;    
+  .wordLink{
+    padding: 2px;
     font-size: 60px;    
     margin-right: 50px;
     text-decoration: none;
+    background-image:url('../../../public/images/blue-fish.png'),url('../../../public/images/crabs.png'), url('../../../public/images/water-ripple.png');
+    background-size: 40%, 40%, 100%;
+    background-position:top left, bottom right, center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
   }
 
 img{
   background-color: transparent;
+}
+
+.mathLink{
+  padding: 2px;
+  font-size: 60px;    
+  margin-right: 50px;
+  text-decoration: none;
+  background-image: url('../../../public/images/flowers-face.png');
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  border-radius: 30px;
+}
+.mainUL li{
+  width: 30%;
+  height: 30vh;
+
+}
+
+.mainUL li a{
+  text-decoration: none;
+  color: whitesmoke;
+  margin: 0;
+  border-radius: 30px;
+  padding:1rem;
+  text-shadow: 1px 1px 3px #865d5a;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
 }

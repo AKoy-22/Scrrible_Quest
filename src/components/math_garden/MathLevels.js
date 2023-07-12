@@ -17,9 +17,10 @@ function MathLevels() {
             <style>
     {`
         body {
+          margin-top:7rem;
           background-image:url('../images/flower-frame.png');
           background-size:cover;
-          background-position: center;
+          background-position: top;
           }
         `}
     </style>
@@ -27,10 +28,10 @@ function MathLevels() {
             <Link className={classes.homeLink} to="/">Home</Link>
             <div>
                 <h3 className={classes.chooseLevel}>Choose Your Level: </h3>
-                <ul>
+                <ul className={classes.mathLevelUL}>
                     <div className={classes.levelsContainer} >
                         <li className={classes.mathItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler(1)} to="/math-garden-advanced">Egg</Link></li>
-                        <li className={classes.mathItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler(2)} to="/math-garden-advanced">Larva/Caterpillar</Link></li>
+                        <li className={classes.mathItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler(2)} to="/math-garden-advanced">Caterpillar</Link></li>
                         <li className={classes.mathItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler(3)} to="/math-garden-advanced">Pupa</Link></li>
                         <li className={classes.mathItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler(4)} to="/math-garden-advanced">Ready to Fly!</Link></li>
                     </div>

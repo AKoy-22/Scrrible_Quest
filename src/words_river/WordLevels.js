@@ -15,21 +15,22 @@ function WordLevels() {
         <div>
          <style>
         {`
-        body {
-            background-color: #89A8CD;
-            background-image:url('../images/fish-bg.png');
-            background-size: cover;
+        body, html {
+                height: 100%;
+            }
+        body {    
+            background-color:#89A8CD;
+            background-image:url('../images/fish-bg2.png');
+            background-size: contain;
             background-position: center;
-
           }
         `}
       </style>
             <div className={classes.logoutLink} >Logout</div>
             <Link className={classes.homeLink} style={{color:'#EFA4A0' }} to="/">Home</Link>
             <div>
-            
                 <h3 className={classes.chooseLevel}>Choose Your Level: </h3>
-                <ul>
+                <ul className={classes.wordLevelUL}>
                     <div className={classes.levelsContainer} >
                         <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("1st")} to="/words-river">Eggs</Link></li>
                         <li className={classes.listItem}><Link className={classes.levelsLink} onClick={() => levelClickHandler("2nd")} to="/words-river">Alevin</Link></li>

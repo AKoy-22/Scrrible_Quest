@@ -153,15 +153,15 @@ function WordsMain() {
     
     backgroundImage: score>0 
       ? score > 6
-        ? `url('../images/salmon-6.png'), url('../images/seaweed1.svg'), url('../images/seaweed2.svg')`
-        :`url('../images/salmon-${score}.png'), url('../images/seaweed1.svg'), url('../images/seaweed2.svg')`
-      :`url('../images/seaweed1.svg'), url('../images/seaweed2.svg')` ,   
-    backgroundSize: '55%, 40%, 40% ',
+        ? `url('../images/salmon-6.png')`
+        :`url('../images/salmon-${score}.png')`
+      :null,   
+    backgroundSize: '55%',
     backgroundPosition: score > 0
     ? score > 6
-      ? 'left  bottom -100px, right, left'
-      : 'left  bottom -100px, right, left'
-    : 'right, left',
+      ? 'left  bottom -100px'
+      : 'left  bottom -100px'
+    :null,
     backgroundRepeat: 'no-repeat',
     width: '100%',
    
@@ -174,6 +174,9 @@ function WordsMain() {
         {`
         body {
             background-color: #89A8CD;
+            background-image:url('../images/fish-bg2.png');
+            background-size: cover;
+            background-position: center;
           }
         `}
       </style>

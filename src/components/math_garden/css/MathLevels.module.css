@@ -1,6 +1,11 @@
-ul{
+.mathLevelUL{
   margin:0 auto;
-  width: 100%;
+  width: 50%;
+}
+.wordLevelUL{
+  margin:0 auto;
+  width: 50%;
+  
 }
 
 .levelsContainer {
@@ -10,6 +15,7 @@ ul{
   padding: 0;
  
 }
+
 
 .levelsLink {
   margin-bottom: 10px;
@@ -28,18 +34,20 @@ ul{
   display: block;
   text-align: center;
   letter-spacing: 6px;
-  font-size: 80px;
-
+  font-size: 70px;
+letter-spacing: 10px;
 font-family: 'Nunito', sans-serif;
 
 }
 
 .homeLink {
+  background-color: rgba(240, 248, 255, 0.4);
+  border-radius: 15px;
   position: absolute;
   top: 20px; 
   right: 30px; 
   text-decoration: none;
-  color:  #89A8CD;
+  color:   #89A8CD;
   letter-spacing: 5px;
   font-size: 50px;
   cursor: pointer;
@@ -47,6 +55,8 @@ font-family: 'Nunito', sans-serif;
 
 
 .logoutLink {
+  background-color: rgba(240, 248, 255, 0.4);
+  border-radius: 15px;
   position: absolute;
   top: 20px; 
   left: 30px; 

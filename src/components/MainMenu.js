@@ -1,5 +1,6 @@
 import classes from './css/MainMenu.module.css'
 import { Link } from 'react-router-dom';
+import boygirl from '../images/boy-girl.png'
 
 
 function Welcome({handleLogout}){
@@ -8,12 +9,25 @@ function Welcome({handleLogout}){
     storedUserName = storedUserName ? storedUserName.charAt(0).toUpperCase() + storedUserName.slice(1) : '';
     return(
         <div>
+            {/* <style>
+                {`
+                    body {
+                        background-image: url('../images/boy-girl.png');
+                        background-position:center 120px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+                `}
+    </style> */}
             <div className={classes.logoutLink} onClick={handleLogout}>Logout</div>
-            <h2 className={classes.welcome}>Hello <span className={classes.userName}>{storedUserName}!</span></h2>
+            <div className={classes.welcomeContainer}>     
+                <h2 className={classes.welcome}>Hello <span className={classes.userName}>{storedUserName}!</span></h2> 
+            </div>
+            <div className={classes.boygirl}><img  src={boygirl}/></div>
             <h3 className={classes.subTitle}>Where do you want to go today ?</h3>
-            <ul>
-                <li ><Link className={classes.gameLink} to="/math-garden-levels">Math Garden</Link></li>
-                <li ><Link className={classes.gameLink} to="/words-river-levels">Words River</Link></li>
+            <ul className={classes.mainUL}>
+                <li className={classes.mathLink}><Link  to="/math-garden-levels">Math Garden</Link></li>
+                <li className={classes.wordLink} ><Link to="/words-river-levels">Words River</Link></li>
             </ul>
         </div>
     );
