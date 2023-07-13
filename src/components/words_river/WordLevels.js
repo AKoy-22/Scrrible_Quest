@@ -1,4 +1,4 @@
-import classes from '../components/math_garden/css/MathLevels.module.css';
+import classes from '../math_garden/css/MathLevels.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 

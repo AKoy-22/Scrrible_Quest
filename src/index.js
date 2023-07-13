@@ -5,12 +5,13 @@ import App from './App';
 import MathMain from './components/math_garden/MathMain';
 import MathMainAdv from './components/math_garden/MathMainAdv';
 import MathLevels from './components/math_garden/MathLevels';
-import WordsMain from './words_river/WordsMain';
+import WordsMain from './components/words_river/WordsMain';
 import Welcome from './components/MainMenu';
 import reportWebVitals from './reportWebVitals';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import WordLevels from './words_river/WordLevels';
+import WordLevels from './components/words_river/WordLevels';
+import FishGame from './components/fish-jump-game/FishGame';
 
 const routes = createBrowserRouter([
   { path: '/', element:<App/>}, // our-domain 
@@ -20,6 +21,7 @@ const routes = createBrowserRouter([
   { path: '/math-garden-levels', element:<MathLevels/>},
   { path: '/words-river', element:<WordsMain/>},
   { path: '/words-river-levels', element:<WordLevels/>},
+  { path: '/fish-game', element:<FishGame/>},
 
 
 ]);

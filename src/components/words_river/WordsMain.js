@@ -1,13 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import classes from './css/wordsMain.module.css'
 import { Link } from 'react-router-dom';
-import { clearCanvas, prepareCanvas } from '../components/math_garden/canvas';
+import { clearCanvas, prepareCanvas } from '../math_garden/canvas';
 import { speakWord } from './wordsgame_logic';
-// import salmon1 from '../images/salmon-1.png';
-// import salmon2 from '../images/salmon-2.png';
-// import salmon3 from '../images/salmon-3.png';
-// import salmon4 from '../images/salmon-4.png';
-// import seaweed1 from '../images/seaweed1.svg';
 
 
 function WordsMain() {

@@ -28,7 +28,8 @@ function Welcome({handleLogout}){
             <div className={classes.boygirl}><img  src={boygirl}/></div>
             <div className={classes.subTitleContainer}>
                 <h3 className={classes.subTitle}>Where do you want to go today ?</h3>
-                {totalScore>=4 && <img className={classes.starImg} src={star} alt="girl on a shooting star"/>}
+                {totalScore>=4 
+                    && <Link to="/fish-game"><img className={classes.starImg} src={star} alt="girl on a shooting star"/></Link>}
             </div>
            
             <ul className={classes.mainUL}>

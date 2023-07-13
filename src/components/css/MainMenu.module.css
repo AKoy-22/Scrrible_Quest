@@ -47,14 +47,6 @@ body{
     text-shadow: 1px 1px 3px #84865a;
 }
 
-.subTitle {
-    font-size: 80px;
-    color:  whitesmoke;
-    font-weight:50;  
-    text-align: center; 
-    letter-spacing: 5px;
-    margin: 0 auto;
-  }
 
   .mainUL {
     margin: 0px;
@@ -62,7 +54,6 @@ body{
     display: flex;
     justify-content: center;
   }
-
 
   .wordLink{
     padding: 2px;
@@ -75,15 +66,34 @@ body{
     background-repeat: no-repeat;
     border-radius: 30px;
   }
+  
+  .subTitle {
+    font-size: 80px;
+    color:  whitesmoke;
+    font-weight:50;  
+    /* text-align: center;  */
+    letter-spacing: 5px;
+    margin: 0 auto;
+  }
 
-.starImg{
-  width: 10%;
-  margin: 0 1rem;
+  .starImg{
+    width: 150px;
+    margin-right: 10rem;
+    margin-left: 0;
  
-}
+  }
 .subTitleContainer {
   display: flex;
   align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 20vh;
+  margin: 0;
+}
+.imgContainer{
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .mathLink{
