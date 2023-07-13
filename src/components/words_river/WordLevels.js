@@ -26,7 +26,7 @@ function WordLevels() {
           }
         `}
       </style>
-            <div className={classes.logoutLink} >Logout</div>
+           
             <Link className={classes.homeLink} style={{color:'#EFA4A0' }} to="/">Home</Link>
             <div>
                 <h3 className={classes.chooseLevel}>Choose Your Level: </h3>
