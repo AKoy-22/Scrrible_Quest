@@ -13,7 +13,7 @@
   flex-direction: column;
   list-style-type: none;
   padding: 0;
- 
+  margin: 0;
 }
 
 
@@ -29,19 +29,20 @@
 }
 
 .chooseLevel {
-  margin: auto;
+  margin: 3.5rem auto;
   color: whitesmoke;
   display: block;
   text-align: center;
   letter-spacing: 6px;
   font-size: 70px;
-letter-spacing: 10px;
-font-family: 'Nunito', sans-serif;
+  letter-spacing: 10px;
+  font-family: 'Nunito', sans-serif;
 
 }
 
 .homeLink {
-  background-color: rgba(240, 248, 255, 0.4);
+  text-shadow: 2px 2px 3px #96bd9a;
+  padding: 0.2rem;
   border-radius: 15px;
   position: absolute;
   top: 20px; 
@@ -55,7 +56,7 @@ font-family: 'Nunito', sans-serif;
 
 
 .logoutLink {
-  background-color: rgba(240, 248, 255, 0.4);
+  text-shadow: 2px 2px 3px #96bd9a;
   border-radius: 15px;
   position: absolute;
   top: 20px; 

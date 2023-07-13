@@ -9,24 +9,27 @@ function MathLevels() {
     function levelClickHandler(level) {
         setLevel(level);
         localStorage.setItem('level', level);
-
     }
 
     return (
         <div>
             <style>
-    {`
-        body {
-          margin-top:7rem;
-          background-image:url('../images/flower-frame.png');
-          background-size:cover;
-          background-position: top;
-          }
-        `}
-    </style>
-            <div className={classes.logoutLink} >Logout</div>
+                {`
+                    html,body{
+                    width:100%;
+                    height:100%
+                    }
+                    body {
+                    background-image:url('../images/flower-bg.png');
+                    background-size:cover;
+                    background-position: center;
+                    }
+                `}
+            </style>
+       
             <Link className={classes.homeLink} to="/">Home</Link>
             <div>
+            
                 <h3 className={classes.chooseLevel}>Choose Your Level: </h3>
                 <ul className={classes.mathLevelUL}>
                     <div className={classes.levelsContainer} >

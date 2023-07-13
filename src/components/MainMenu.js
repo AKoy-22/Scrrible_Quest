@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import boygirl from '../images/boy-girl.png'
 import { useState } from 'react';
 import star from '../images/girl-star.png'
+
 function Welcome({handleLogout}){
 /**This component is the main menu page with two options 1. Math and 2.Words */
     let totalScore=localStorage.getItem('currentScore');
@@ -11,16 +12,6 @@ function Welcome({handleLogout}){
     storedUserName = storedUserName ? storedUserName.charAt(0).toUpperCase() + storedUserName.slice(1) : '';
     return(
         <div>
-            {/* <style>
-                {`
-                    body {
-                        background-image: url('../images/boy-girl.png');
-                        background-position:center 120px;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                    }
-                `}
-    </style> */}
             <div className={classes.logoutLink} onClick={handleLogout}>Logout</div>
             <div className={classes.welcomeContainer}>     
                 <h2 className={classes.welcome}>Hello <span className={classes.userName}>{storedUserName}!</span></h2> 

@@ -20,9 +20,9 @@ function WordLevels() {
             }
         body {    
             background-color:#89A8CD;
-            background-image:url('../images/fish-bg2.png');
-            background-size: contain;
-            background-position: center;
+            background-image:url('../images/fish-bg.svg');
+            background-size: cover;
+            background-position: bottom;
           }
         `}
       </style>
