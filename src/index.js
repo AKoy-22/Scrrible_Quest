@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import WordLevels from './components/words_river/WordLevels';
-import FishGame from './components/fish-jump-game/FishGame';
+import Tic_Tac_Toe from './components/games/Tic_Tac_Toe';
 
 const routes = createBrowserRouter([
   { path: '/', element:<App/>}, // our-domain 
@@ -21,8 +21,7 @@ const routes = createBrowserRouter([
   { path: '/math-garden-levels', element:<MathLevels/>},
   { path: '/words-river', element:<WordsMain/>},
   { path: '/words-river-levels', element:<WordLevels/>},
-  { path: '/fish-game', element:<FishGame/>},
-
+  { path: '/tic-tac-toe', element:<Tic_Tac_Toe/>},
 
 ]);
 
