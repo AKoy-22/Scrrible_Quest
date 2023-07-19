@@ -16,3 +16,20 @@
     border: solid 1px black;
 }
 
+.playBtn{
+    font-family: 'Just Another Hand', cursive;
+    font-size: 3.5rem;
+    background-color: #EFA4A0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    max-width: 10rem;
+    width: 100%;
+    margin: 25px auto;
+    padding: 8px;
+    display: block;
+}
+.playBtnContainer{
+    margin: 0;
+}

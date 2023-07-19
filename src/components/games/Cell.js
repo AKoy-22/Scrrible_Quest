@@ -1,38 +1,46 @@
 import classes from './css/cell.module.css';
 import { useState, useEffect } from 'react';
 
-function Cell({id, cell, setCells, go, setGo, cells, addCircleCells, addCrossCells, crossCells, handleCellChange}){
+function Cell({ id, go, setGo, cells, addCircleCells, addCrossCells, crossCells, handleCellChange, winMsg, availableCells, circleCells }) {
 
 
+useEffect(() => {
+    console.log("props !!!! : "+availableCells);
+ 
+}, [availableCells])
 
-    function handleClick(e){
-    console.log(e.target);
-    //checks if the cell is taken
-    const taken= e.target.firstChild.classList.contains(classes.circle) ||e.target.firstChild.classList.contains(classes.cross);
-    if(!taken){
-        if(go==="circle"){
-            e.target.firstChild.classList.add(classes.circle);
-            setGo("cross");
-            handleCellChange("circle", parseInt(e.target.id));
-            addCircleCells(parseInt(e.target.id));
-            
+    function handleClick(e) {
+        console.log(e.target);
+        //checks if the cell is taken
+        const currentCellId = parseInt(e.target.id);
+        if (cells[currentCellId] !== "") {
+            alert("That cell is already taken!")
+        } else {
+            if (go === "circle") {
+                //e.target.firstChild.classList.add(classes.circle);
+                setGo("cross");
+                handleCellChange("circle", parseInt(currentCellId));
+                addCircleCells(parseInt(currentCellId));
+
+            }
+            if (!winMsg) {
+                setTimeout(() => {
+                    addCrossCells(availableCells, currentCellId);
+                }, 3000);
+            }
+
         }
-        setTimeout(() => {
-                addCrossCells();
-            }, 3000);
-
-    }else{
-        alert("That cell is taken !")
     }
-}
 
-    return(
-      <>
-        <div className={classes.square} id={id} onClick={handleClick}>
-            <div id={id}  className={crossCells.includes(id) ? classes.cross : ''}></div> 
-        </div>
-      </>
-        
+
+    return (
+        <>
+            <div className={classes.square} id={id} onClick={ handleClick}>
+                <div id={id} className={crossCells.includes(id) ? classes.cross : circleCells.includes(id) ? classes.circle : ''}></div>
+            </div>
+            
+        </>
+
     );
 }
 
