@@ -101,7 +101,7 @@ function Tic_Tac_Toe() {
         winComb.forEach(comb => {
             let tie = comb.every(elem => cells[elem] !== "cross" || cells[elem] !== "circle");
             if (tie && !availableCells.length) {
-                setWinMsg("It's a tie ");
+                setWinMsg("It's a tie 😤 ");
                 setGameFinish(true);
                 return;
             }
