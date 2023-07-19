@@ -1,8 +1,8 @@
 .square{
-    width: 100px;
+    width: 200px;
     background-color: whitesmoke;
-    height: 100px;
-    border: solid 2px rgb(48, 55, 52);
+    height: 200px;
+    border: solid 2px rgb(47, 56, 52);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -10,16 +10,16 @@
 }
 
 .circle{
-    width: 90px;
-    height: 90px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 15px solid #83a5cf;
     box-sizing: border-box;
 }
 
 .cross{
-    width: 90px;
-    height: 90px;
+    width: 180px;
+    height: 180px;
     position: relative;
     transform: rotate(45deg);
 }

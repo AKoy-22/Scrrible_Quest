@@ -90,14 +90,23 @@ function Tic_Tac_Toe() {
             }
         });
         winComb.forEach(comb => {
-            let circleWin = comb.every(elem => cells[elem] === "cross");
-            if (circleWin) {
+            let crossleWin = comb.every(elem => cells[elem] === "cross");
+            if (crossleWin) {
                 setWinMsg("You Loose 😿 ");
-                setGameFinish(false);
+                setGameFinish(true);
 
                 return;
             }
         });
+        winComb.forEach(comb => {
+            let tie = comb.every(elem => cells[elem] !== "cross" || cells[elem] !== "circle");
+            if (tie && !availableCells.length) {
+                setWinMsg("It's a tie ");
+                setGameFinish(true);
+                return;
+            }
+        });
+
     }
     function playAgainHandler() {
         setGameFinish(false);
@@ -112,8 +121,25 @@ function Tic_Tac_Toe() {
 
 
     return (
+        
         <div className={classes.gameContainer}>
-            <h2>{winMsg ? winMsg : go === "circle" ? "Your turn!🫵🏼" : "My turn!"}</h2>
+         <style>
+                {`
+                    html,body{
+                    width:100%;
+                    height:100%
+                    }
+                    body {
+                    margin:0;
+                    background-color:  rgba(178, 225, 183, 0.7);
+                    background-image:url('../images/circle_cross.png');
+                    background-size:50%;
+                    background-position: center;
+                    background-repeat: repeat;
+                    }
+                `}
+            </style>
+            <h2 className={classes.message}>{winMsg ? winMsg : go === "circle" ? "Your turn!🫵🏼" : "My turn!"}</h2>
 
             <div className={classes.playBtnContainer}>{winMsg && <button onClick={playAgainHandler} className={classes.playBtn}>Play Again</button>} </div>
             {!gameFinish &&
