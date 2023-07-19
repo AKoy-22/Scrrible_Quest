@@ -113,7 +113,7 @@ function Tic_Tac_Toe() {
 
     return (
         <div className={classes.gameContainer}>
-            <h2>{winMsg ? winMsg : go === "circle" ? "Your turn!" : "My turn!"}</h2>
+            <h2>{winMsg ? winMsg : go === "circle" ? "Your turn!🫵🏼" : "My turn!"}</h2>
 
             <div className={classes.playBtnContainer}>{winMsg && <button onClick={playAgainHandler} className={classes.playBtn}>Play Again</button>} </div>
             {!gameFinish &&
