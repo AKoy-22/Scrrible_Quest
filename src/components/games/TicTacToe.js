@@ -4,7 +4,7 @@ import classes from './css/tic_tac_toe.module.css'
 import { useState, useEffect } from 'react';
 
 
-function Tic_Tac_Toe() {
+function TicTacToe() {
 
     const [cells, setCells] = useState(["", "", "", "", "", "", "", "", ""]); //9 cells
     const [go, setGo] = useState("circle");
@@ -164,4 +164,4 @@ function Tic_Tac_Toe() {
     )
 }
 
-export default Tic_Tac_Toe;
+export default TicTacToe;

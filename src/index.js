@@ -7,11 +7,12 @@ import MathMainAdv from './components/math_garden/MathMainAdv';
 import MathLevels from './components/math_garden/MathLevels';
 import WordsMain from './components/words_river/WordsMain';
 import Welcome from './components/MainMenu';
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import WordLevels from './components/words_river/WordLevels';
-import Tic_Tac_Toe from './components/games/Tic_Tac_Toe';
+import TicTacToe from './components/games/TicTacToe';
+import Fish_Jump_Game from './components/games/Fish_Jump_Game';
 
 const routes = createBrowserRouter([
   { path: '/', element:<App/>}, // our-domain 
@@ -21,7 +22,9 @@ const routes = createBrowserRouter([
   { path: '/math-garden-levels', element:<MathLevels/>},
   { path: '/words-river', element:<WordsMain/>},
   { path: '/words-river-levels', element:<WordLevels/>},
-  { path: '/tic-tac-toe', element:<Tic_Tac_Toe/>},
+  { path: '/tic-tac-toe', element:<TicTacToe/>},
+  { path: '/fish-game', element:<Fish_Jump_Game/>},
+
 
 ]);
 
@@ -36,4 +39,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//reportWebVitals();
