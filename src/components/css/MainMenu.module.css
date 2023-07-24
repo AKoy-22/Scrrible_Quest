@@ -62,8 +62,8 @@ body{
     font-size: 60px;    
     margin-right: 50px;
     text-decoration: none;
-    background-image:url('../../../public/images/blue-fish.png'),url('../../../public/images/crabs.png'),url('../../../public/images/numbers.png'), url('../../../public/images/water-ripple.png');
-    background-size: 40%, 40%, 80%, 100%;
+    background-image:url('../../../public/images/blue-fish.png'),url('../../../public/images/crabs.png'),url('../../../public/images/abc.png'), url('../../../public/images/water-ripple.png');
+    background-size: 40%, 40%, 100%, 100%;
     background-position:top left, bottom right, center, center;
     background-repeat: no-repeat;
     border-radius: 30px;
