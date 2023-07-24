@@ -141,6 +141,12 @@ function WordsMain() {
 
   }
 
+  function checkCurrentScore(){
+
+    localStorage.setItem('currentScoreWords', score);
+    eraseBtnHandler();
+  }
+
 
   const styles = {
     margin:0,
@@ -178,7 +184,7 @@ function WordsMain() {
  
     <div style={styles}>
 
-      <Link className={classes.homeLink} to="/">Home</Link>
+      <Link className={classes.homeLink} onClick={checkCurrentScore} to="/">Home</Link>
 
       <div className={classes.container}>
         {right && <h1 className={classes.yay}>Yay!😆</h1>}

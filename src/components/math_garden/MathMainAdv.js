@@ -142,7 +142,7 @@ function MathMainAdv() {
 
   function checkCurrentScore(){
 
-    localStorage.setItem('currentScore', score);
+    localStorage.setItem('currentScoreMath', score);
     eraseBtnHandler();
   }
   return (

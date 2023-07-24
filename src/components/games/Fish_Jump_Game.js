@@ -13,9 +13,9 @@ function Fish_Jump_Game() {
 
     useEffect(() => {
         const handleKeyDown = (event) => {
-            if (event.code === 'Space') {
-                jump();
-            }
+
+            jump();
+
         };
 
         document.addEventListener('keydown', handleKeyDown);
