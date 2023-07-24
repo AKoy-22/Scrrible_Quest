@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import useInterval from './useInterval';
 import { Link } from 'react-router-dom';
 
-function Fish_Jump_Game() {
+function FishJumpGame() {
     const characterRef = useRef(null);
     const blockRef = useRef(null);
     const scoreSpanRef = useRef(null);
@@ -13,9 +13,7 @@ function Fish_Jump_Game() {
 
     useEffect(() => {
         const handleKeyDown = (event) => {
-
             jump();
-
         };
 
         document.addEventListener('keydown', handleKeyDown);
@@ -76,5 +74,4 @@ function Fish_Jump_Game() {
         </div>
     )
 }
-
-export default Fish_Jump_Game;
+export default FishJumpGame;

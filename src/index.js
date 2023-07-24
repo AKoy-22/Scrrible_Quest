@@ -12,7 +12,7 @@ import Welcome from './components/MainMenu';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import WordLevels from './components/words_river/WordLevels';
 import TicTacToe from './components/games/TicTacToe';
-import Fish_Jump_Game from './components/games/Fish_Jump_Game';
+import FishJumpGame from './components/games/FishJumpGame';
 
 const routes = createBrowserRouter([
   { path: '/', element:<App/>}, // our-domain 
@@ -23,7 +23,7 @@ const routes = createBrowserRouter([
   { path: '/words-river', element:<WordsMain/>},
   { path: '/words-river-levels', element:<WordLevels/>},
   { path: '/tic-tac-toe', element:<TicTacToe/>},
-  { path: '/fish-game', element:<Fish_Jump_Game/>},
+  { path: '/fish-game', element:<FishJumpGame/>},
 
 
 ]);

@@ -65,7 +65,7 @@ function WordsMain() {
 
   function handleSpeak() {
     speakWord(word);
-    //logAvailableVoices();
+
   };
 
   function getIndexFromLetter() {
@@ -105,8 +105,6 @@ function WordsMain() {
             setRight(false);
 
             eraseBtnHandler();
-          
-            // setSalmonImg(`../images/salmon-${score}.png`)
 
           }, 2000)
 
@@ -138,7 +136,6 @@ function WordsMain() {
       setShowAnswer(false);
       getRandomWord(level);
     }, 2000)
-
   }
 
   function checkCurrentScore(){
@@ -218,7 +215,6 @@ function WordsMain() {
 
       <div className={classes.topLeftBtns}>
         <button onClick={eraseBtnHandler}>Erase</button>
-        <button>Hint</button>
         <button onClick={showAnswerHandler}>Show Answer</button>
       </div>
 

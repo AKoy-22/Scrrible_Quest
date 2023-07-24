@@ -18,7 +18,6 @@ function TicTacToe() {
 
     useEffect(() => {
         checkWinner();
-
     }, [cells])
 
 
@@ -69,7 +68,6 @@ function TicTacToe() {
     }
 
     function handleCellChange(classNameString, id) {
-
         setCells((prevCells) => {
             const newCells = [...prevCells];
             newCells[id] = classNameString;
@@ -93,7 +91,7 @@ function TicTacToe() {
         winComb.forEach(comb => {
             let crossleWin = comb.every(elem => cells[elem] === "cross");
             if (crossleWin) {
-                setWinMsg("You Loose 😿 ");
+                setWinMsg("You Lose 😿 ");
                 setGameFinish(true);
 
                 return;
@@ -117,7 +115,6 @@ function TicTacToe() {
         setAvailableCells([0, 1, 2, 3, 4, 5, 6, 7, 8]);
         setWinMsg(null);
         setGo("circle")
-        
     }
 
 
@@ -160,8 +157,6 @@ function TicTacToe() {
                         availableCells={availableCells}
                         circleCells={circleCells} />)}
                 </div>}
-
-
         </div>
     )
 }

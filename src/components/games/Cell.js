@@ -38,7 +38,6 @@ useEffect(() => {
             <div className={classes.square} id={id} onClick={ handleClick}>
                 <div id={id} className={crossCells.includes(id) ? classes.cross : circleCells.includes(id) ? classes.circle : ''}></div>
             </div>
-            
         </>
 
     );

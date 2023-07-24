@@ -20,11 +20,11 @@ function Welcome({ handleLogout }) {
             </div>
             <div className={classes.boygirl}><img src={boygirl} /></div>
             <div className={classes.subTitleContainer}>
-                <h3 className={classes.subTitle}>Where do you want to go today ?</h3>
+            <h3 className={classes.subTitle}>Where do you want to go today ?</h3>
                 {MathScore >= 0
-                    && <Link to="/tic-tac-toe"><img className={classes.starImg} src={star} alt="girl on a shooting star" /></Link>}
+                    && <Link to="/tic-tac-toe"><img className={classes.starImg2} src={star2} alt="boy on a shooting star" /></Link>}
                 {WordScore >= 0
-                    && <Link to="/fish-game"><img className={classes.starImg} src={star2} alt="boy on a shooting star" /></Link>}
+                    && <Link to="/fish-game"><img className={classes.starImg} src={star} alt="girl on a shooting star" /></Link>}
             </div>
 
             <ul className={classes.mainUL}>
