@@ -43,3 +43,16 @@
     color:  #f4ec8c ;
     font-size: 8rem;
 }
+
+.homeLink {
+    margin-top: 1rem;
+    position: absolute;
+    top: 5px; 
+    right: 10px; 
+    text-decoration: none;
+    color:  whitesmoke;
+    letter-spacing: 5px;
+    font-size: 3.5rem;
+    cursor: pointer;
+    text-shadow: 2px 2px 3px #a0c9a4;
+  }

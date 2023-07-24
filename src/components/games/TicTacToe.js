@@ -2,6 +2,7 @@
 import Cell from './Cell';
 import classes from './css/tic_tac_toe.module.css'
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 function TicTacToe() {
@@ -139,6 +140,7 @@ function TicTacToe() {
                     }
                 `}
             </style>
+            <Link className={classes.homeLink} to="/">Home</Link>
             <h2 className={classes.message}>{winMsg ? winMsg : go === "circle" ? "Your turn!🫵🏼" : "My turn!"}</h2>
 
             <div className={classes.playBtnContainer}>{winMsg && <button onClick={playAgainHandler} className={classes.playBtn}>Play Again</button>} </div>
