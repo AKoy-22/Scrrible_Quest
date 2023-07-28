@@ -6,9 +6,14 @@ import star from '../images/girl-star.png';
 import star2 from '../images/boy-star.png'
 
 function Welcome({ handleLogout }) {
-    /**This component is the main menu page with two options 1. Math and 2.Words */
+    /**This component is the main menu page with two options 1. Math and 2.Words 
+     * There will also be links to games once user accumulated enough scores.
+     * Once user achieves score of above 5,which is controlled by gameThreshold variable, 
+     * game links will appear. Tic Tac Toe for Maths game, Go Fish! for Words game.
+    */
     let MathScore = localStorage.getItem('currentScoreMath');
     let WordScore = localStorage.getItem('currentScoreWords');
+    const gameThreshold = 5; 
     console.log("my current score is..." + localStorage.getItem('currentScoreMath'));
     let storedUserName = localStorage.getItem('userStorageName');
     storedUserName = storedUserName ? storedUserName.charAt(0).toUpperCase() + storedUserName.slice(1) : '';
@@ -21,9 +26,9 @@ function Welcome({ handleLogout }) {
             <div className={classes.boygirl}><img src={boygirl} /></div>
             <div className={classes.subTitleContainer}>
             <h3 className={classes.subTitle}>Where do you want to go today ?</h3>
-                {MathScore >= 0
+                {MathScore >= gameThreshold
                     && <Link to="/tic-tac-toe"><img className={classes.starImg2} src={star2} alt="boy on a shooting star" /></Link>}
-                {WordScore >= 0
+                {WordScore >= gameThreshold
                     && <Link to="/fish-game"><img className={classes.starImg} src={star} alt="girl on a shooting star" /></Link>}
             </div>
 

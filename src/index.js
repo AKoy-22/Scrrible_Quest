@@ -7,7 +7,7 @@ import MathMainAdv from './components/math_garden/MathMainAdv';
 import MathLevels from './components/math_garden/MathLevels';
 import WordsMain from './components/words_river/WordsMain';
 import Welcome from './components/MainMenu';
-//import reportWebVitals from './reportWebVitals';
+
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import WordLevels from './components/words_river/WordLevels';
@@ -24,7 +24,6 @@ const routes = createBrowserRouter([
   { path: '/words-river-levels', element:<WordLevels/>},
   { path: '/tic-tac-toe', element:<TicTacToe/>},
   { path: '/fish-game', element:<FishJumpGame/>},
-
 
 ]);
 

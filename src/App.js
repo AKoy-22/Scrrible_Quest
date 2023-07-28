@@ -3,7 +3,9 @@ import Welcome from './components/MainMenu';
 import { useState, useEffect } from 'react';
 
 function App() {
-
+/**Entry point to the app. Welcome or Login page is displayed
+ * depending on the login status. 
+ */
   const [loginStatus, setLoginStatus] = useState(false);
   const [loginData, setLoginData] = useState(null);
 
@@ -33,17 +35,11 @@ function App() {
   }
 
   return (
-
-
     <div>
-      {loginStatus ? <Welcome handleLogout={handleLogout}  /> :
-
+      {loginStatus ? <Welcome handleLogout={handleLogout} /> :
         <Login handleLogin={handleLogin} />
-
       }
     </div>
-
   );
 }
-
 export default App;
