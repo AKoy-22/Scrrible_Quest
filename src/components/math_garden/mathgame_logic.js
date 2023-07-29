@@ -34,7 +34,7 @@ export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, se
           NUM2 = getRandomNumber(spLevel); 
           setAdNum1(NUM1);
           setAdNum2(NUM2);
-        } while (NUM1 * NUM2 == 100);
+        } while (NUM1 * NUM2 === 100);
 
         tempAnswer = NUM1 * NUM2;
       }
@@ -50,7 +50,7 @@ export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, se
     }
     setAnswer(tempAnswer);
     tempAnswer > 9 ? setUseSecondCanvas(true) : setUseSecondCanvas(false);
-    console.log(tempAnswer);
+   
   }
 
   //called inside newQuestion function
@@ -58,9 +58,5 @@ function getRandomNumber(lev) {
     const max = lev * 5;
     const min = (lev * 5) - 5;
     const NUM = Math.round(Math.floor(Math.random() * (max - min + 1)) + min);
-    console.log(lev);
-    console.log("MAX" + max);
-    console.log("MIN" + min);
-    console.log("NUM" + NUM);
     return NUM;
   }

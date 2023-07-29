@@ -78,8 +78,6 @@ function MathMainAdv() {
       imageDataURL = [imageDataURL1, imageDataURL2];
     }
 
-    console.log(imageDataURL);
-
     fetch('http://localhost:8000/process-image/number', {
       method: 'POST',
       headers: {
@@ -90,15 +88,11 @@ function MathMainAdv() {
       .then(response => response.json())
       .then(data => {
         // Handle the response from the backend
-        console.log(data);
         var predicted_num_tot;
         !useSecondCanvas ? predicted_num_tot = data.predictions[0]
           : predicted_num_tot = (data.predictions[0]).toString() + (data.predictions[1]).toString();
 
-        console.log("predicted Total: " + predicted_num_tot + "real answer: " + answer);
-
         if (parseInt(predicted_num_tot) === answer) {
-          console.log("That is correct!");
           setRight(true);
           setWrong(false);
           setHint(false);
@@ -124,8 +118,9 @@ function MathMainAdv() {
   function eraseBtnHandler() {
     const canvas1 = canvasRef1.current;
     const canvas2 = canvasRef2.current;
-    ctx1 = canvas1.getContext('2d', { willReadFrequently: true });
-    ctx2 = canvas2.getContext('2d', { willReadFrequently: true });
+
+    ctx1 = canvas1?.getContext('2d', { willReadFrequently: true });
+    ctx2 = canvas2?.getContext('2d', { willReadFrequently: true });
     //to avoid error when canvas is empty  
     if (ctx1 && ctx2) {
       clearCanvas(canvas1, ctx1);
@@ -181,7 +176,7 @@ function MathMainAdv() {
 
         <div className={classes.topLeftBtns}>
           <button onClick={eraseBtnHandler}>Erase</button>
-          {level==1 || level==2 ? <button onClick={hintBtnHandler}>Hint</button>:null}
+          {level===1 || level===2 ? <button onClick={hintBtnHandler}>Hint</button>:null}
           <button className={classes.opt} onClick={() => setOperatorHandler("+")}>+</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("-")}>-</button>
           <button className={classes.opt} onClick={() => setOperatorHandler("x")}>x</button>

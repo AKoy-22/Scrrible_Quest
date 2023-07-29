@@ -1,4 +1,6 @@
-/**Prepares the canvas */
+/**Prepares the canvas./ Used for both math and words game
+ * utilizes OpenCV in backend. 
+ */
 
 const BACK_COLOR = '#000000';
 const LINE_COL = "#FFFFFF";

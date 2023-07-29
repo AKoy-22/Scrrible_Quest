@@ -25,7 +25,6 @@ function Login(props) {
 
     function createUserBtnHandler(event) {  //event listener onChange, 
         setModalIsVisible(true)
-        return console.log("clicked Register button")
     }
 
     function hideModalHander() {
@@ -34,8 +33,6 @@ function Login(props) {
 
     function loginBtnHandler(event) {
         event.preventDefault();
-        console.log("Login Button Clicked");
-        console.log(inputValues)
 
         fetch('http://localhost:8000/login/', {
             method: 'POST',
@@ -46,11 +43,11 @@ function Login(props) {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.message)
-                if (data.message == 'Login successful') {
+                //console.log(data.message)
+                if (data.message === 'Login successful') {
                     props.handleLogin(inputValues)
                 }
-                else if (data.message == 'Invalid password') {
+                else if (data.message === 'Invalid password') {
                     alert("Login failed. Please check your username and/or password !")
                 }
                 else if (data.message == 'Username does not exist') {
@@ -59,7 +56,7 @@ function Login(props) {
             })
             .catch(error => {
                 // Handle any errors
-                console.log("There was an error")
+                alert("There was a login error")
             });
     }
 

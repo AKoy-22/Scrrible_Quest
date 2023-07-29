@@ -27,10 +27,9 @@ function TicTacToe() {
 
         setAvailableCells((prevAvailableCells) => {
             const newAvailableCells = prevAvailableCells.filter((number) => number !== someId);
-            console.log(newAvailableCells + " newAvailableCells inside setAvailableCells function in adCeircleCells")
             return newAvailableCells;
         })
-        console.log(availableCells + " inside addCircleCells function")
+       
     }
 
     function addCrossCells(arr, currentCellId) {
@@ -41,8 +40,6 @@ function TicTacToe() {
             do {
                 randomIndex = Math.round(Math.random() * (arr.length - 1));
                 nextCrossCell = arr[randomIndex];
-                console.log("random index is: " + randomIndex);
-                console.log("next cross cell inside while loop is id number" + nextCrossCell);
             } while (circleCells.includes(nextCrossCell) || nextCrossCell === currentCellId)
 
 

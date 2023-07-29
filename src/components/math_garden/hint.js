@@ -1,3 +1,4 @@
+/**Logic to display hint function in math game which is available for elementary levels */
 export function renderCircles (num) {
     const circles = [];
     const totalCircles = num; // Calculate the total number of circles

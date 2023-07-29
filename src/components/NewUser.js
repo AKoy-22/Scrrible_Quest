@@ -56,6 +56,7 @@ function NewUser({hideModalHander}){
 
     //sends data to backend if form is valid   
     function registerBtnHandler(event){
+      event.preventDefault(); // Prevent form submission
 
         const isFormValid = validateForm();
         if(! isFormValid){
@@ -71,15 +72,14 @@ function NewUser({hideModalHander}){
         })
         .then(response => {
            // Handle the response from the Django backend
-           console.log(response.status);
-           if(response.status===2000){
-            hideModalHander();
+           if(response.status===200){
+             hideModalHander();
            }//sets modalIsVisible=false to clear the form if registration is successful. 
            alert("You are registered. Please login with your username and password !")
          })
          .catch(error => {
            // Handle any errors
-           console.log("There was an error")
+           alert("There was a registration error")
          });
         event.preventDefault();
       }

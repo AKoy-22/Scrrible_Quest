@@ -23,7 +23,6 @@ function App() {
     localStorage.setItem('userStorageName', userData.username);
     // Store login status in storage
     localStorage.setItem('loginStatus', 'true');
-    console.log(loginStatus);
   }
 
   function handleLogout(event) {
@@ -31,7 +30,6 @@ function App() {
     // Remove loginstorage data
     localStorage.removeItem('userStorageName');
     localStorage.removeItem('loginStatus');
-    console.log(loginStatus);
   }
 
   return (

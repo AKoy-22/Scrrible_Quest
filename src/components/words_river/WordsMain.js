@@ -23,8 +23,6 @@ function WordsMain() {
   const [score, setScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false); //canvas removed when show answer button is clicked 
   const [level, setLevel] = useState();
-  const [salmonImg, setSalmonImg] = useState(null);
-
 
   async function getRandomWord(grade) {
     try {
@@ -46,7 +44,6 @@ function WordsMain() {
     const fetchData = () => {
       const tempLevel = localStorage.getItem('wordLevel')
       setLevel(tempLevel);
-      console.log(localStorage.getItem('wordLevel'));
       getRandomWord(tempLevel);
     };
 
@@ -97,13 +94,9 @@ function WordsMain() {
       .then(response => response.json())
       .then(data => {
         // Handle the response from the backend
-        console.log(data);
         const prediction = data.predictions[0];
-        console.log(prediction);
         const answerIndex = getIndexFromLetter();
-        if (answerIndex == parseInt(prediction)) {
-
-          console.log("that is correct !");
+        if (answerIndex === parseInt(prediction)) {
           setRight(true);
           setWrong(false);
           setScore(score + 1);
@@ -116,7 +109,6 @@ function WordsMain() {
           }, 2000)
 
         } else {
-          console.log("oops ! try again !");
           setWrong(true);
           setTimeout(() => {
             eraseBtnHandler();
@@ -137,7 +129,6 @@ function WordsMain() {
 
   function showAnswerHandler() {
     setShowAnswer(true);
-    console.log("show answer clicked");
 
     setTimeout(() => {
       setShowAnswer(false);

@@ -1,7 +1,6 @@
 import classes from './css/MainMenu.module.css'
 import { Link } from 'react-router-dom';
 import boygirl from '../images/boy-girl.png'
-import { useState } from 'react';
 import star from '../images/girl-star.png';
 import star2 from '../images/boy-star.png'
 
@@ -14,7 +13,7 @@ function Welcome({ handleLogout }) {
     let MathScore = localStorage.getItem('currentScoreMath');
     let WordScore = localStorage.getItem('currentScoreWords');
     const gameThreshold = 5; 
-    console.log("my current score is..." + localStorage.getItem('currentScoreMath'));
+   
     let storedUserName = localStorage.getItem('userStorageName');
     storedUserName = storedUserName ? storedUserName.charAt(0).toUpperCase() + storedUserName.slice(1) : '';
     return (

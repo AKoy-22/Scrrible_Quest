@@ -1,16 +1,10 @@
 import classes from './css/cell.module.css';
-import { useEffect } from 'react';
 
 function Cell({ id, go, setGo, cells, addCircleCells, addCrossCells, crossCells, handleCellChange, winMsg, availableCells, circleCells }) {
 /** Child component of the Tic Tac Toe game */
 
-useEffect(() => {
-    console.log("props !!!! : "+availableCells);
- 
-}, [availableCells])
 
     function handleClick(e) {
-        console.log(e.target);
         //checks if the cell is taken
         const currentCellId = parseInt(e.target.id);
         if (cells[currentCellId] !== "") {

@@ -17,17 +17,17 @@ export function speakWord(word) {
   
       speechSynthesis.speak(utterance);
     } else {
-      console.log('Speech synthesis is not supported in this browser.');
+      alert('Speech synthesis is not supported in this browser.');
     }
   }
   
   
   export function logAvailableVoices() {
     if ('speechSynthesis' in window) {
-      const voices = speechSynthesis.getVoices();
-      console.log(voices);
+      speechSynthesis.getVoices();
+      
     } else {
-      console.log('Speech synthesis is not supported in this browser.');
+      alert('Speech synthesis is not supported in this browser.');
     }
   }
   

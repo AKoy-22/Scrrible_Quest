@@ -56,13 +56,6 @@ function FishJumpGame() {
 
     return (
         <div>
-            <style>
-                {`
-                body {
-               
-                }
-        `   }
-            </style>
             <Link className={classes.homeLink} to="/">Home</Link>
             <h3 className={classes.pressKey}> Press Any Key to Jump !</h3>
             <div className={classes.game} >
