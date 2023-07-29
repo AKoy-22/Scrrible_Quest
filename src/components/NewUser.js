@@ -72,7 +72,9 @@ function NewUser({hideModalHander}){
         .then(response => {
            // Handle the response from the Django backend
            console.log(response.status);
-           hideModalHander();//sets modalIsVisible=false to clear the form if registration is successful. 
+           if(response.status===2000){
+            hideModalHander();
+           }//sets modalIsVisible=false to clear the form if registration is successful. 
            alert("You are registered. Please login with your username and password !")
          })
          .catch(error => {
@@ -80,7 +82,6 @@ function NewUser({hideModalHander}){
            console.log("There was an error")
          });
         event.preventDefault();
-        console.log(inputValues)
       }
     
 
@@ -105,4 +106,4 @@ function NewUser({hideModalHander}){
     )
 }
 
-export default NewUser
+export default NewUser;

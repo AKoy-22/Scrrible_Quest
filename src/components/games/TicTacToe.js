@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom';
 
 
 function TicTacToe() {
-
-    const [cells, setCells] = useState(["", "", "", "", "", "", "", "", ""]); //9 cells
+/**Circle is the user and opppnent cross is automated */
+    const [cells, setCells] = useState(["", "", "", "", "", "", "", "", ""]); //9 cells. Keeps track of unused cells and checks for game win.  
     const [go, setGo] = useState("circle");
     const [winMsg, setWinMsg] = useState(null);
-
     const [crossCells, setCrossCells] = useState([]);
     const [circleCells, setCircleCells] = useState([]);
     const [availableCells, setAvailableCells] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
@@ -20,13 +19,10 @@ function TicTacToe() {
         checkWinner();
     }, [cells])
 
-
-
     function addCircleCells(someId) {
-        // Using the functional update to update the state based on the previous state
         setCircleCells((prevCircleCells) => {
-            const newCircleCells = [...prevCircleCells, someId]; // Create a copy of the previous state array
-            return newCircleCells; // Update the state with the new array
+            const newCircleCells = [...prevCircleCells, someId]; 
+            return newCircleCells; 
         });
 
         setAvailableCells((prevAvailableCells) => {
@@ -42,13 +38,11 @@ function TicTacToe() {
         if (arr.length > 1) {
             let randomIndex;
             let nextCrossCell;
-
             do {
-                randomIndex = Math.round(Math.random() * (arr.length - 1));//[0,3,5,7]   //index=3 ele=7  
-                nextCrossCell = arr[randomIndex];//returns a random id of available cell 7 in this case
+                randomIndex = Math.round(Math.random() * (arr.length - 1));
+                nextCrossCell = arr[randomIndex];
                 console.log("random index is: " + randomIndex);
                 console.log("next cross cell inside while loop is id number" + nextCrossCell);
-
             } while (circleCells.includes(nextCrossCell) || nextCrossCell === currentCellId)
 
 
@@ -93,7 +87,6 @@ function TicTacToe() {
             if (crossleWin) {
                 setWinMsg("You Lose 😿 ");
                 setGameFinish(true);
-
                 return;
             }
         });

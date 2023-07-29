@@ -1,14 +1,12 @@
 import classes from '../math_garden/css/MathLevels.module.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+
 
 function WordLevels() {
-
+/**Enables user to select the difficulty level of the game */
 
     function levelClickHandler(level) {
-  
         localStorage.setItem('wordLevel', level);
-
     }
 
     return (
@@ -41,8 +39,6 @@ function WordLevels() {
                     </div>
                 </ul>
             </div>
-
-
         </div>
     );
 }

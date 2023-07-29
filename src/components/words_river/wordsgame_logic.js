@@ -1,3 +1,4 @@
+/** Logic behind speak button in Words Game. Also controls the change in voices when speak button is clicked. Used in WordsMain.js */
 export function speakWord(word) {
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(word);

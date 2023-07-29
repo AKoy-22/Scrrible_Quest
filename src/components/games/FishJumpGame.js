@@ -4,6 +4,7 @@ import useInterval from './useInterval';
 import { Link } from 'react-router-dom';
 
 function FishJumpGame() {
+    /** User is to navigate through a river by jumping over rocks by pressing any key */
     const characterRef = useRef(null);
     const blockRef = useRef(null);
     const scoreSpanRef = useRef(null);
@@ -37,7 +38,6 @@ function FishJumpGame() {
                 setCounter((prevCounter) => prevCounter + 1);
                 scoreSpanRef.current.innerHTML = Math.floor(counter / 100);
             }
-
         }
     }, 10);
 

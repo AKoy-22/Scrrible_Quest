@@ -6,13 +6,20 @@ import { speakWord } from './wordsgame_logic';
 
 
 function WordsMain() {
+  /**The Words game is to help user to practice their writing skills and spelling. 
+   * The words displayed are divided by levels, based on fry words which are most commonly used 
+   * words in everyday English. User can listen to the word then write the missing letter
+   * or directly guess without listening. The algorithm for interpreting handwritten lettters 
+   * sometimes have difficulty guessing correcltly for some letters such as q and a, if not written clearly. 
+   * It is case insensitive. */
+
   const canvRef = useRef(null);
   const [indexToReplace, setIndexToReplace] = useState();
   const [canvasReady, setCanvasReady] = useState(false); //ensures that canvas element is rendered before prepare canvas is called
   const [word, setWord] = useState('');
   const [answer, setAnswer] = useState('');
-  const [right, setRight] = useState(false); //controls corresponding message 
-  const [wrong, setWrong] = useState(false); //controls corresponding message 
+  const [right, setRight] = useState(false);
+  const [wrong, setWrong] = useState(false);
   const [score, setScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false); //canvas removed when show answer button is clicked 
   const [level, setLevel] = useState();
@@ -138,7 +145,7 @@ function WordsMain() {
     }, 2000)
   }
 
-  function checkCurrentScore(){
+  function checkCurrentScore() {
 
     localStorage.setItem('currentScoreWords', score);
     eraseBtnHandler();
@@ -146,29 +153,29 @@ function WordsMain() {
 
 
   const styles = {
-    margin:0,
+    margin: 0,
     height: '100vh',
-    
-    backgroundImage: score>0 
+
+    backgroundImage: score > 0
       ? score > 6
         ? `url('../images/salmon-6.png')`
-        :`url('../images/salmon-${score}.png')`
-      :null,   
+        : `url('../images/salmon-${score}.png')`
+      : null,
     backgroundSize: '55%',
     backgroundPosition: score > 0
-    ? score > 6
-      ? 'left  bottom -100px'
-      : 'left  bottom -100px'
-    :null,
+      ? score > 6
+        ? 'left  bottom -100px'
+        : 'left  bottom -100px'
+      : null,
     backgroundRepeat: 'no-repeat',
     width: '100%',
-   
+
   };
 
 
   return (
-   <div>     
-   <style>
+    <div>
+      <style>
         {`
         body {
             background-color: #89A8CD;
@@ -178,56 +185,48 @@ function WordsMain() {
           }
         `}
       </style>
- 
-    <div style={styles}>
 
-      <Link className={classes.homeLink} onClick={checkCurrentScore} to="/">Home</Link>
+      <div style={styles}>
+        <Link className={classes.homeLink} onClick={checkCurrentScore} to="/">Home</Link>
+        <div className={classes.container}>
+          {right && <h1 className={classes.yay}>Yay!😆</h1>}
+          {wrong && <h1 className={classes.nay}>Oops! Try again...🧐</h1>}
+          {!right && !wrong && <h1 className={classes.title}>Words River</h1>}
 
-      <div className={classes.container}>
-        {right && <h1 className={classes.yay}>Yay!😆</h1>}
-        {wrong && <h1 className={classes.nay}>Oops! Try again...🧐</h1>}
-        {!right && !wrong && <h1 className={classes.title}>Words River</h1>}
+          {word.split('').map((char, index) => {
+            if (index === indexToReplace && !showAnswer) {
+              return (
+                <canvas
+                  className={classes.wordCanvas}
+                  ref={(ref) => {
+                    if (ref) {
+                      canvRef.current = ref;
+                      setCanvasReady(true); // Call setCanvasReady when the canvas is rendered
+                    }
+                  }}
+                  key={index}
+                  width="150"
+                  height="150"
+                ></canvas>
+              );
+            } else {
+              return <span key={index}>{char}</span>;
+            }
+          })}
+        </div>
 
+        <div className={classes.topLeftBtns}>
+          <button onClick={eraseBtnHandler}>Erase</button>
+          <button onClick={showAnswerHandler}>Show Answer</button>
+        </div>
 
-        {word.split('').map((char, index) => {
-
-          if (index === indexToReplace && !showAnswer) {
-            return (
-              <canvas
-                className={classes.wordCanvas}
-                ref={(ref) => {
-                  if (ref) {
-                    canvRef.current = ref;
-                    setCanvasReady(true); // Call setCanvasReady when the canvas is rendered
-                  }
-                }}
-                key={index}
-                width="150"
-                height="150"
-              ></canvas>
-            );
-          } else {
-            return <span key={index}>{char}</span>;
-          }
-        })}
-        {/* <canvas className={classes.wordCanvas} ref={canvRef} width="150" height="150">error</canvas> */}
-      </div>
-
-      <div className={classes.topLeftBtns}>
-        <button onClick={eraseBtnHandler}>Erase</button>
-        <button onClick={showAnswerHandler}>Show Answer</button>
-      </div>
-
-      <div className={classes.container}>
-        <button className={classes.btnSpeak} onClick={handleSpeak}>Speak Word</button>
-        <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
-
+        <div className={classes.container}>
+          <button className={classes.btnSpeak} onClick={handleSpeak}>Speak Word</button>
+          <button className={classes.btn} value='Check' onClick={checkAnswerBtnHandler} >Check</button>
+        </div>
 
       </div>
-      {/* <img  src='../images/salmon-1.png' alt='image of a salmon'></img> */}
     </div>
-
-</div>
   );
 }
 

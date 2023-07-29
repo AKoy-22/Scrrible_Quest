@@ -2,10 +2,10 @@
   margin:0 auto;
   width: 50%;
 }
+
 .wordLevelUL{
   margin:0 auto;
   width: 50%;
-  
 }
 
 .levelsContainer {
@@ -15,7 +15,6 @@
   padding: 0;
   margin: 0;
 }
-
 
 .levelsLink {
   margin-bottom: 10px;
@@ -37,7 +36,6 @@
   font-size: 70px;
   letter-spacing: 10px;
   font-family: 'Nunito', sans-serif;
-
 }
 
 .homeLink {
@@ -53,7 +51,6 @@
   font-size: 50px;
   cursor: pointer;
 }
-
 
 .logoutLink {
   text-shadow: 2px 2px 3px #96bd9a;
@@ -74,16 +71,16 @@
   padding-left: 7rem ;
   background-image: url('../../../../public/images/starfish.svg');
   background-repeat: no-repeat;
-  background-position:left center; /* Adjust the position as needed */
-  background-size: 4rem; /* Adjust the size of the icon as needed */
+  background-position:left center; 
+  background-size: 4rem; 
 }
 
 /* for math game */
 .mathItem{
   list-style-type: none;
-  padding:0 7rem ; /* Adjust the indentation as needed */
+  padding:0 7rem ; 
   background-image: url('../../../../public/images/rainbow.png');
   background-repeat: no-repeat;
-  background-position: left center; /* Adjust the position as needed */
-  background-size: 5rem; /* Adjust the size of the icon as needed */
+  background-position: left center; 
+  background-size: 5rem; 
 }

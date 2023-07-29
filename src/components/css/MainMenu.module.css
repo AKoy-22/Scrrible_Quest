@@ -79,7 +79,6 @@ body {
   font-size:4.5rem;
   color: whitesmoke;
   font-weight: 50;
-  /* text-align: center;  */
   letter-spacing: 5px;
   margin: 0 auto;
 }
@@ -87,14 +86,10 @@ body {
 .starImg {
   flex-wrap: wrap;
   width: 10rem;
-  
-  /* margin-left: 0; */
 }
 .starImg2 {
   flex-wrap: wrap;
   width: 15rem;
-  
-  /* margin: 0; */
 }
 
 .subTitleContainer {
@@ -120,14 +115,12 @@ body {
   background-image: url('../../../public/images/numbers.png'), url('../../../public/images/flowers-face.png');
   background-size: 70%, 80%;
   background-position: center, right;
-  /* background-repeat: no-repeat; */
   border-radius: 30px;
 }
 
 .mainUL li {
   width: 30%;
   height: 30vh;
-
 }
 
 .mainUL li a {

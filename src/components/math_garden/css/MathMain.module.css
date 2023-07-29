@@ -31,8 +31,6 @@ body {
   margin-bottom: 20px;
 }
 
-
-
 h2 {
   font-size: 150px;
 }
@@ -46,7 +44,6 @@ h3 {
   color: #FFFFFF;
   font-family:cursive;
   letter-spacing: normal;
-  
 }
 
 .hints{
@@ -54,7 +51,6 @@ h3 {
  text-align: center;
  margin-top: 0; 
 }
-
 
 .myCanvas {
   border-radius: 10px;
@@ -137,6 +133,7 @@ h3 {
   border-style: none;
   color: whitesmoke;
 }
+
 .topLeftBtns .opt:hover{
 background-color: whitesmoke;
 color: #89A8CD;;

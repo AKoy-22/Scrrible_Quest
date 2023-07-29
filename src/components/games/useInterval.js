@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react';
 
 function useInterval(callback, delay) {
+  /** Used in Fish Jump game 
+   * native setInterval() as react custom hook repeated calling the function
+  */
   const savedCallback = useRef();
 
   useEffect(() => {
