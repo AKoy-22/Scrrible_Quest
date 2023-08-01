@@ -26,7 +26,7 @@ function WordsMain() {
 
   async function getRandomWord(grade) {
     try {
-      const response = await fetch(`http://localhost:8000/get-random-word/${grade}`);
+      const response = await fetch(`https://web-production-52835.up.railway.app/get-random-word/${grade}`);
       const data = await response.json();
       const apiWord = data.random_word;
       setWord(apiWord);
@@ -84,7 +84,7 @@ function WordsMain() {
   function checkAnswerBtnHandler() {
     const canvas1 = canvRef.current;
     const imageDataURL = canvas1.toDataURL();
-    fetch('http://localhost:8000/process-image/letter', {
+    fetch('https://web-production-52835.up.railway.app/process-image/letter', { //http://localhost:8000/process-image/letter
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

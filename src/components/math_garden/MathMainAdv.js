@@ -78,7 +78,8 @@ function MathMainAdv() {
       imageDataURL = [imageDataURL1, imageDataURL2];
     }
 
-    fetch('http://localhost:8000/process-image/number', {
+    //http://localhost:8000/process-image/number
+    fetch('https://web-production-52835.up.railway.app/process-image/number', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
