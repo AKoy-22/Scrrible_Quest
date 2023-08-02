@@ -34,7 +34,7 @@ function Login(props) {
     function loginBtnHandler(event) {
         event.preventDefault();
 //'http://localhost:8000/login
-        fetch('https://scrriblequest-production.up.railway.app/login/', {
+        fetch('https://web-production-52835.up.railway.app/login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
