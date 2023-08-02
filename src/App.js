@@ -30,6 +30,8 @@ function App() {
     // Remove loginstorage data
     localStorage.removeItem('userStorageName');
     localStorage.removeItem('loginStatus');
+    localStorage.removeItem('currentScoreMath');
+    localStorage.removeItem('currentScoreWords');
   }
 
   return (
