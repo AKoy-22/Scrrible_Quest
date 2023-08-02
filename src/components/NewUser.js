@@ -63,7 +63,7 @@ function NewUser({hideModalHander}){
             return;
         }
 
-        fetch('http://localhost:8000/add-user/', {  
+        fetch('https://scrriblequest-production.up.railway.app/add-user/', {  
           method: 'POST', 
           headers: {
             'Content-Type': 'application/json'
