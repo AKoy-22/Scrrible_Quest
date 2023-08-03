@@ -101,7 +101,8 @@ function MathMainAdv() {
             newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
             setRight(false);
             eraseBtnHandler();
-            setScore(score + 1);
+            //setScore(score + 1);
+            handleIncrementScore();
           }, 2000); // Delay of 2 seconds (2000 milliseconds)
         } else {
           setWrong(true);
@@ -115,6 +116,11 @@ function MathMainAdv() {
         console.error(error);
       });
   }
+
+  function handleIncrementScore() {
+    setScore(prevScore => prevScore + 1);
+  }
+
   //clears the canvase when Erase button is clicked 
   function eraseBtnHandler() {
     const canvas1 = canvasRef1.current;
