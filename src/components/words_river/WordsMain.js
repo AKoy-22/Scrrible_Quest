@@ -99,7 +99,8 @@ function WordsMain() {
         if (answerIndex === parseInt(prediction)) {
           setRight(true);
           setWrong(false);
-          setScore(score + 1);
+          //setScore(score + 1);
+          handleIncrementScore();
           setTimeout(() => {
             getRandomWord(level);
             setRight(false);
@@ -120,6 +121,10 @@ function WordsMain() {
         console.error(error);
       });
   }
+  function handleIncrementScore() {
+    setScore(prevScore => prevScore + 1);
+  }
+  
 
   function eraseBtnHandler() {
     const canvas1 = canvRef.current;
