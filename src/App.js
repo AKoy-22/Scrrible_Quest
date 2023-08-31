@@ -7,7 +7,7 @@ function App() {
  * depending on the login status. 
  */
   const [loginStatus, setLoginStatus] = useState(false);
-  const [loginData, setLoginData] = useState(null);
+  //const [loginData, setLoginData] = useState(null);
 
   // Load login status from storage on component mount
   useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
 
   function handleLogin(userData) {
     setLoginStatus(true);
-    setLoginData(userData);
+    //setLoginData(userData);
     localStorage.setItem('userStorageName', userData.username);
     // Store login status in storage
     localStorage.setItem('loginStatus', 'true');

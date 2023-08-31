@@ -1,7 +1,7 @@
 /**Defines the game logic for Math Garden*/
 export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas) {
     let tempAnswer;
-    var NUM1, NUM2;
+    let NUM1, NUM2;
     if (operator === "+" || operator === "-") {
       NUM1 = getRandomNumber(level);
       NUM2 = getRandomNumber(level);
@@ -22,7 +22,7 @@ export function newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, se
     }
     else if (operator === "x" || operator === "/") {
       if (operator === "x") {
-        var spLevel;
+        let spLevel;
         if (level < 3) {
           spLevel = 1;
         } else {

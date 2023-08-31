@@ -26,7 +26,7 @@ function MathMainAdv() {
   useEffect(() => {
     //retrieve level stored in local storage
     const fetchData = async () => {
-      const level = parseInt(localStorage.getItem('level'));
+      //const level = parseInt(localStorage.getItem('level'));
       setLevel(parseInt(localStorage.getItem('level')));
     };
 
@@ -43,7 +43,7 @@ function MathMainAdv() {
     ctx2 = canvas2.getContext('2d', { willReadFrequently: true });
     const removeEventListeners2 = prepareCanvas(canvas2, ctx2);
 
-    //
+    
     //generate new question 
     newQuestion(level, operator, setAdNum1, setAdNum2, setAnswer, setUseSecondCanvas);
 
@@ -78,6 +78,8 @@ function MathMainAdv() {
       imageDataURL = [imageDataURL1, imageDataURL2];
     }
 
+    if(imageDataURL!=null){
+   
     //http://localhost:8000/process-image/number
     fetch('https://web-production-52835.up.railway.app/process-image/number', {
       method: 'POST',
@@ -115,6 +117,7 @@ function MathMainAdv() {
         // Handle any errors
         console.error(error);
       });
+    }
   }
 
   function handleIncrementScore() {

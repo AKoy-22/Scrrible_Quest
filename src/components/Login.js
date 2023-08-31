@@ -50,7 +50,7 @@ function Login(props) {
                 else if (data.message === 'Invalid password') {
                     alert("Login failed. Please check your username and/or password !")
                 }
-                else if (data.message == 'Username does not exist') {
+                else if (data.message === 'Username does not exist') {
                     alert("No such user. Please sign up to create an account ! ")
                 }
             })
