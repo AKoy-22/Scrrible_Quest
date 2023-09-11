@@ -69,6 +69,7 @@ function Login(props) {
                 : null}
             <h2>Welcome !</h2>
             <div className={classes.container}>
+                <p>Create your account or login with username "Akiko" password "1234abcd" to test the App!</p>
                 <form>
                     <label htmlFor="username">Your Username</label>
                     <input type="text" id="username" name="username" required onChange={handleInputChange} />

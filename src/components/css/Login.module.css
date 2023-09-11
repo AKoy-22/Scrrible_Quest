@@ -72,3 +72,8 @@ body {
     margin: 0 auto;
     display: block;
   }
+  p{
+    font-size: 45px;
+    color: white;
+    letter-spacing: 2.5px;
+  }
